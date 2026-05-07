@@ -1,0 +1,17 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #EAF7FD !important;
+}
+.navbar{
+    background: #CBEFFD !important;
+}
+.contact{
+    margin-right: 390px;
+}
+.nav-link:hover{
+    color: #0E2D7A;
+}
+
+.active{
+    color: #0E2D7A !important;
+}
