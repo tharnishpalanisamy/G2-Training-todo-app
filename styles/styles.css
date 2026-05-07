@@ -5,6 +5,9 @@ body{
 .navbar{
     background: #CBEFFD !important;
 }
+.brand{
+    color: #2D80DA !important;
+}
 .contact{
     margin-right: 390px;
 }
