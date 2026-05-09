@@ -8,13 +8,21 @@ body{
 .brand{
     color: #2D80DA !important;
 }
-.contact{
-    margin-right: 390px;
-}
 .nav-link:hover{
     color: #0E2D7A;
 }
 
 .active{
     color: #0E2D7A !important;
+}
+.heading{
+    color: #2D80DA !important;
+}
+
+.heading-para{
+    color: #163B7A !important;
+}
+
+.heading-secondary-para{
+    color: #5E7CA6 !important;
 }

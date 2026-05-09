@@ -36,51 +36,74 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-
-        <form class="d-flex" role="search">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a
-                class="nav-link active me-4 active fw-medium fs-5"
-                aria-current="page"
-                href="#"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link me-4 fw-medium fs-5"
-                aria-current="page"
-                href="#"
-                >About</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link contact fw-medium fs-5"
-                aria-current="page"
-                href="#"
-                >Contact us</a
-              >
-            </li>
-          </ul>
-          <button type="button" class="btn btn-outline-primary me-3 px-4">
-            Log IN
-          </button>
-          <button type="button" class="btn btn-outline-success me-5 px-4">
-            Sign IN
-          </button>
-        </form>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+          <div
+            class="d-flex w-100 align-items-center flex-column flex-lg-row align-items-lg-center"
+          >
+            <ul class="navbar-nav mx-auto gap-lg-3 mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active mt-4 mt-lg-0 fw-medium fs-5"
+                  aria-current="page"
+                  href="#"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-medium fs-5" aria-current="page" href="#"
+                  >About</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-medium fs-5" aria-current="page" href="#"
+                  >Contact us</a
+                >
+              </li>
+            </ul>
+            <div class="button-container d-flex flex-column flex-lg-row gap-2">
+              <button type="button" class="btn btn-outline-primary px-4">
+                Log IN
+              </button>
+              <button type="button" class="btn btn-outline-success px-4">
+                Sign IN
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </nav>
 
-    <div>
-      <img
-        src="assets/todo image.png"
-        alt="Todo list image"
-        class="mt-5 img-fluid"
-      />
-      <div class="contents"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <img
+            src="assets/todo image.png"
+            alt="Todo list image"
+            class=" img-fluid"
+          />
+        </div>
+
+        <div class="contents col-lg-6 mt-lg-5">
+          <h3 class="fw-bold display-5 heading">Plan Better. Work Smarter.</h3>
+          <p class="heading-para">
+            Stay productive, manage your daily goals, and never miss an
+            important task again with Checklist.
+          </p>
+          <p class="text-secondary heading-secondary-para">
+            Create tasks, track progress, and build better habits with a clean
+            and simple productivity experience.
+          </p>
+
+          <div class="mt-4 d-flex gap-3">
+            <button type="button" class="btn btn-outline-success">
+              Get Started
+            </button>
+            <button type="button" class="btn btn-outline-primary">
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script
