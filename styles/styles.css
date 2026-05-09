@@ -15,14 +15,24 @@ body{
 .active{
     color: #0E2D7A !important;
 }
-.heading{
+.primary-color{
     color: #2D80DA !important;
 }
-
 .heading-para{
     color: #163B7A !important;
 }
 
 .heading-secondary-para{
     color: #5E7CA6 !important;
+}
+
+.required{
+    color: red;
+}
+
+.btn-success{
+    color: white !important;
+}
+.btn-secondary{
+    color: white !important;
 }
