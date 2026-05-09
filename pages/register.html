@@ -22,11 +22,22 @@
       }
       .container {
         background-color: #cbeffd !important;
-}
+      }
+      .ui-widget-content {
+        background: transparent !important;
+        border: none !important;
+      }
+      .ui-tabs-panel {
+        background: transparent !important;
+      }
+      .ui-widget-header {
+        background: transparent !important;
+        border: none !important;
+      }
     </style>
   </head>
   <body>
-    <div class="container w-50 border rounded-3 p-3 px-5 mt-5">
+    <div class="container w-50 border rounded-4 p-3 px-5 mt-5">
       <h2 class="text-success">CheckList Registration</h2>
       <form action="" id="signin-form">
         <div id="tabs">
@@ -261,7 +272,6 @@
     <!-- jQuery UI -->
     <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
     <script>
-        
       $(document).ready(function () {
         //next buttons
         $("#tabs").tabs();
@@ -271,24 +281,21 @@
         $("#next2").click(function () {
           $("#tabs").tabs("option", "active", 2);
         });
-        $("#next3").click(function(){
-            $("#tabs").tabs("option","active",3)
-        })
+        $("#next3").click(function () {
+          $("#tabs").tabs("option", "active", 3);
+        });
 
-        //previous buttons 
-        $("#prev1").click(function(){
-            $("#tabs").tabs("option","active",0)
-        })
-        $("#prev2").click(function(){
-            $("#tabs").tabs("option","active",1)
-        })
-        $("#prev3").click(function(){
-            $("#tabs").tabs("option","active",2)
-        })
-
-        
+        //previous buttons
+        $("#prev1").click(function () {
+          $("#tabs").tabs("option", "active", 0);
+        });
+        $("#prev2").click(function () {
+          $("#tabs").tabs("option", "active", 1);
+        });
+        $("#prev3").click(function () {
+          $("#tabs").tabs("option", "active", 2);
+        });
       });
-
     </script>
   </body>
 </html>
