@@ -22,12 +22,12 @@
       }
       .container {
         background-color: #cbeffd !important;
-      }
+}
     </style>
   </head>
   <body>
-    <div class="container w-50 border rounded p-3 px-5 mt-5">
-      <h2 class="text-success">CheckList Signup</h2>
+    <div class="container w-50 border rounded-3 p-3 px-5 mt-5">
+      <h2 class="text-success">CheckList Registration</h2>
       <form action="" id="signin-form">
         <div id="tabs">
           <ul class="d-flex gap-1">
@@ -147,7 +147,7 @@
             />
 
             <div class="button-container mt-2 d-flex justify-content-between">
-              <a href="" class="btn btn-secondary" id="prev1">Previous</a>
+              <a href="#tab-1" class="btn btn-secondary" id="prev1">Previous</a>
               <a href="#tab-3" class="btn btn-success" id="next2">Next</a>
             </div>
           </div>
@@ -188,16 +188,19 @@
             />
 
             <div class="button-container mt-2 d-flex justify-content-between">
-              <a href="" class="btn btn-secondary" id="prev2">Previous</a>
+              <a href="#tab-2" class="btn btn-secondary" id="prev2">Previous</a>
               <a href="#tab-4" class="btn btn-success" id="next3">Next</a>
             </div>
           </div>
           <!-- tab 4 -->
           <div id="tab-4">
             <h4 class="semi-bold">Terms & Conditions</h4>
-            <p class="text-secondary">Please read the following terms carefully before creating your account.</p> 
+            <p class="text-secondary">
+              Please read the following terms carefully before creating your
+              account.
+            </p>
 
-            <div class="border overflow-auto bg-light p-3" style="height: 200px;">
+            <div class="border bg-light p-3" style="height: auto">
               <p>
                 Welcome to Checklist. By creating an account, you agree to
                 provide accurate and complete information during registration.
@@ -212,14 +215,29 @@
                 Users are responsible for maintaining the confidentiality of
                 their account credentials and password.
               </p>
+
+              <p>
+                Any suspicious, harmful, or fraudulent activity may result in
+                temporary suspension or permanent termination of the account.
+              </p>
+
+              <p>
+                Checklist reserves the right to modify or update these terms and
+                conditions at any time without prior notice.
+              </p>
+
+              <p>
+                By continuing with account creation, you acknowledge that you
+                have read, understood, and agreed to these terms and conditions.
+              </p>
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="terms" />
-                <label class="form-check-label" for="terms">
-                  I agree to the Terms & Conditions
-                  <span class="required">*</span>
-                </label>
+              <input class="form-check-input" type="checkbox" id="terms" />
+              <label class="form-check-label" for="terms">
+                I agree to the Terms & Conditions
+                <span class="required">*</span>
+              </label>
             </div>
 
             <div class="button-container mt-2 d-flex justify-content-between">
@@ -243,12 +261,34 @@
     <!-- jQuery UI -->
     <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
     <script>
+        
       $(document).ready(function () {
+        //next buttons
         $("#tabs").tabs();
         $("#next1").click(function () {
           $("#tabs").tabs("option", "active", 1);
         });
+        $("#next2").click(function () {
+          $("#tabs").tabs("option", "active", 2);
+        });
+        $("#next3").click(function(){
+            $("#tabs").tabs("option","active",3)
+        })
+
+        //previous buttons 
+        $("#prev1").click(function(){
+            $("#tabs").tabs("option","active",0)
+        })
+        $("#prev2").click(function(){
+            $("#tabs").tabs("option","active",1)
+        })
+        $("#prev3").click(function(){
+            $("#tabs").tabs("option","active",2)
+        })
+
+        
       });
+
     </script>
   </body>
 </html>
