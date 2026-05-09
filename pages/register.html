@@ -37,7 +37,7 @@
             <li><a href="#tab-4">Confirmation</a></li>
           </ul>
           <div id="tab-1">
-            <label for="firstname"
+            <label for="firstname" class="mt-2"
               >Enter your first name <span class="required">*</span></label
             >
             <input
@@ -46,14 +46,14 @@
               id="firstname"
               placeholder="First Name"
             />
-            <label for="middlename">Enter your middle name </label>
+            <label for="middlename" class="mt-2">Enter your middle name </label>
             <input
               type="text"
               class="form-control w-75 mt-1"
               id="middlename"
               placeholder="Middle Name"
             />
-            <label for="lastname"
+            <label for="lastname" class="mt-2"
               >Enter your last name <span class="required">*</span></label
             >
             <input
@@ -62,17 +62,17 @@
               id="lastname"
               placeholder="Last Name"
             />
-            <label for="gender" class="mt-1"
+            <label for="gender" class="mt-2"
               >Select your gender <span class="required">*</span></label
             ><br />
-            <label for="male">Male</label>
+            <label for="male" class="mt-2">Male</label>
             <input type="radio" name="gender" id="male" value="male" />
-            <label for="female">Female</label>
+            <label for="female" class="mt-2">Female</label>
             <input type="radio" name="gender" id="female" value="female" />
-            <label for="other">Other</label>
+            <label for="other" class="mt-2">Other</label>
             <input type="radio" name="gender" id="other" value="other" /> <br />
 
-            <label for="dob" class="mt-1"
+            <label for="dob" class="mt-2"
               >Date of Birth <span class="required">*</span></label
             >
             <br />
@@ -91,6 +91,61 @@
 
           <!-- tab 2 -->
           <div id="tab-2">
+            <label for="email" class="mt-1"
+              >Email <span class="required">*</span></label
+            ><br />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="w-75 mt-1 form-control"
+              placeholder="abc@gmail.com"
+            />
+
+            <label for="phone" class="mt-2"
+              >Phone Number <span class="required">*</span></label
+            >
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              class="form-control w-75 mt-1"
+              placeholder="1234567890"
+            />
+
+            <label for="country" class="mt-2"
+              >Country <span class="required">*</span></label
+            >
+            <input
+              type="text"
+              name="country"
+              id="country"
+              class="form-control w-75 mt-1"
+              placeholder="Eg-India"
+            />
+
+            <label for="state" class="mt-2"
+              >State <span class="required">*</span></label
+            >
+            <input
+              type="text"
+              name="state"
+              id="state"
+              class="form-control w-75 mt-1"
+              placeholder="Eg-Tamil Nadu"
+            />
+
+            <label for="city" class="mt-2"
+              >City <span class="required">*</span></label
+            >
+            <input
+              type="text"
+              name="city"
+              id="city"
+              class="form-control w-75 mt-1"
+              placeholder="Eg-Chennai"
+            />
+
             <div class="button-container mt-2 d-flex justify-content-between">
               <a href="" class="btn btn-secondary" id="prev1">Previous</a>
               <a href="#tab-3" class="btn btn-success" id="next2">Next</a>
@@ -99,6 +154,39 @@
 
           <!-- tab 3 -->
           <div id="tab-3">
+            <label for="username" class="mt-2"
+              >Username <span class="required">*</span></label
+            >
+            <input
+              type="text"
+              for="username"
+              id="username"
+              class="mt-2 form-control w-75"
+              placeholder="eg-Sastha07"
+            />
+
+            <label for="password" class="mt-2"
+              >Password <span class="required">*</span></label
+            >
+            <input
+              type="password"
+              for="password"
+              id="password"
+              class="mt-2 form-control w-75"
+              placeholder="Enter Your Password"
+            />
+
+            <label for="confirm-password" class="mt-2"
+              >Confirm Password <span class="required">*</span></label
+            >
+            <input
+              type="password"
+              for="confirm-password"
+              id="confirm-password"
+              class="mt-2 form-control w-75"
+              placeholder="Confirm Your Password"
+            />
+
             <div class="button-container mt-2 d-flex justify-content-between">
               <a href="" class="btn btn-secondary" id="prev2">Previous</a>
               <a href="#tab-4" class="btn btn-success" id="next3">Next</a>
@@ -106,9 +194,39 @@
           </div>
           <!-- tab 4 -->
           <div id="tab-4">
+            <h4 class="semi-bold">Terms & Conditions</h4>
+            <p class="text-secondary">Please read the following terms carefully before creating your account.</p> 
+
+            <div class="border overflow-auto bg-light p-3" style="height: 200px;">
+              <p>
+                Welcome to Checklist. By creating an account, you agree to
+                provide accurate and complete information during registration.
+              </p>
+
+              <p>
+                Your personal information will be stored securely and will not
+                be shared with unauthorized third parties.
+              </p>
+
+              <p>
+                Users are responsible for maintaining the confidentiality of
+                their account credentials and password.
+              </p>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="terms" />
+                <label class="form-check-label" for="terms">
+                  I agree to the Terms & Conditions
+                  <span class="required">*</span>
+                </label>
+            </div>
+
             <div class="button-container mt-2 d-flex justify-content-between">
-              <a href="" class="btn btn-secondary" id="prev3">Previous</a>
-              <a href="#tab-3" class="btn btn-success" id="submitBtn">Submit</a>
+              <a href="#tab-3" class="btn btn-secondary" id="prev3">Previous</a>
+              <a class="btn btn-success disabled" id="createBtn"
+                >Create Account</a
+              >
             </div>
           </div>
         </div>
