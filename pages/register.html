@@ -34,17 +34,27 @@
         background: transparent !important;
         border: none !important;
       }
-      label{
+      label {
         color: rgb(53, 127, 53);
+      }
+      .main-container {
+        width: 95%;
+        background-color: #cbeffd;
+      }
+
+      @media (min-width: 992px) {
+        .main-container {
+          width: 50%;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="container w-50 border rounded-4 p-3 px-5 mt-5">
+    <div class="container main-container border rounded-4 p-3 px-5 mt-5">
       <h2 class="text-success">CheckList Registration</h2>
       <form action="" id="signin-form">
         <div id="tabs">
-          <ul class="d-flex gap-1">
+          <ul class="d-none d-lg-flex">
             <li><a href="#tab-1">Personal Information</a></li>
             <li><a href="#tab-2">Contact Details</a></li>
             <li><a href="#tab-3">Account Details</a></li>
