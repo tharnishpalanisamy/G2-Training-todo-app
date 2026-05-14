@@ -110,6 +110,7 @@
             <br />
             <input
               type="date"
+              name="dob"
               for="dob"
               id="dob"
               class="form-control w-50 mt-1"
@@ -426,6 +427,12 @@
           submitHandler: function (form) {
             alert("Form submitted successfully!");
           },
+          Highlight:function(element){
+            $(element).addClass("is-invalid")
+          }, 
+          Highlight:function(element){
+            $(element).removeClass("is-invalid")
+          }
         });
       });
     </script>
