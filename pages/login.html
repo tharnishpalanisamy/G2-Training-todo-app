@@ -12,10 +12,6 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
-    <link
-      rel="stylesheet"
-      href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css"
-    />
   </head>
   <style>
     body {
@@ -33,6 +29,11 @@
     .login-container {
       width: 75%;
     }
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+    }
 
     @media (min-width: 992px) {
       .login-container {
@@ -47,25 +48,29 @@
       <h1 class="text-primary fw-bold">Welcome!</h1>
       <p class="text-secondary">Login to Get Started !</p>
 
-      <form action="" class="login-form">
+      <form action="" class="login-form" novalidate>
         <label for="username">Username <span class="required">*</span></label>
         <input
           type="text"
+          name="username"
           class="form-control mt-2 w-100"
           id="username"
           placeholder="Enter your username"
-        />
-        <label for="password" class="mt-2"
+        /> <br>
+        <label for="password" class=""
           >Password <span class="required">*</span></label
         >
         <input
           type="password"
+          name="password"
           class="form-control mt-2 w-100"
           id="password"
           placeholder="Enter your password"
         />
 
-        <a href="" class="btn btn-primary mt-4 w-100 rounded-pill">Login</a>
+        <button type="submit" class="btn btn-primary mt-4 w-100 rounded-pill">
+          Login
+        </button>
         <p class="text-secondary mt-2">
           Don't have an account?
           <a href="register.html" class="text-success">Register here</a>
@@ -80,7 +85,35 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-    <!-- jQuery UI -->
-    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".login-form").validate({
+          rules: {
+            username: {
+              required: true,
+              minlength: 3,
+            },
+            password: {
+              required: true,
+              minlength: 8,
+            },
+          },
+          messages: {
+            username: {
+              required: "Username cannot be empty",
+              minlength: "Username should be inimum 3 characters",
+            },
+            password: {
+              required: "Password cannot be empty",
+              minlength: "Password should be above 8 characters",
+            },
+          },
+          submitHandler: function (form) {
+            alert("Login successful!");
+          },
+        });
+      });
+    </script>
   </body>
 </html>

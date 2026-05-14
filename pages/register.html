@@ -41,6 +41,11 @@
         width: 95%;
         background-color: #cbeffd;
       }
+      .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+    }
 
       @media (min-width: 992px) {
         .main-container {
@@ -66,27 +71,30 @@
             >
             <input
               type="text"
+              name="firstName"
               class="form-control w-75 mt-1"
               id="firstname"
               placeholder="First Name"
-            />
-            <label for="middlename" class="mt-2">Enter your middle name </label>
+            /> <br>
+            <label for="middlename" >Enter your middle name </label>
             <input
               type="text"
+              name="middleName"
               class="form-control w-75 mt-1"
               id="middlename"
               placeholder="Middle Name"
-            />
-            <label for="lastname" class="mt-2"
+            /> <br>
+            <label for="lastname"
               >Enter your last name <span class="required">*</span></label
             >
             <input
               type="text"
+              name="lastName"
               class="form-control w-75 mt-1"
               id="lastname"
               placeholder="Last Name"
-            />
-            <label for="gender" class="mt-2"
+            /> <br>
+            <label for="gender"
               >Select your gender <span class="required">*</span></label
             ><br />
             <label for="male" class="mt-2">Male</label>
@@ -266,9 +274,9 @@
 
             <div class="button-container mt-2 d-flex justify-content-between">
               <a href="#tab-3" class="btn btn-secondary" id="prev3">Previous</a>
-              <a class="btn btn-success disabled" id="createBtn"
-                >Create Account</a
-              >
+              <button type="submit" class="btn btn-success" id="createBtn">
+                Create Account
+              </button>
             </div>
           </div>
         </div>
@@ -284,6 +292,8 @@
 
     <!-- jQuery UI -->
     <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+
     <script>
       $(document).ready(function () {
         //next buttons
@@ -307,6 +317,112 @@
         });
         $("#prev3").click(function () {
           $("#tabs").tabs("option", "active", 2);
+        });
+
+        //validarions
+        $("#signin-form").validate({
+          rules: {
+            firstName: {
+              required: true,
+              minlength: 2,
+            },
+            lastName: {
+              required: true,
+              minlength: 1,
+            },
+            gender: {
+              required: true,
+            },
+            dob: {
+              required: true,
+            },
+            email: {
+              required: true,
+              email: true,
+            },
+            phone: {
+              required: true,
+              digits: true,
+              minlength: 10,
+              maxlength: 10,
+            },
+            country: {
+              required: true,
+            },
+            state: {
+              required: true,
+            },
+            city: {
+              required: true,
+            },
+            username: {
+              required: true,
+              minlength: 6,
+            },
+            password: {
+              required: true,
+              minlength: 8,
+            },
+            confirmPassword: {
+              required: true,
+              minlength: 8,
+              equalTo: "#password",
+            },
+            terms: {
+              required: true,
+            },
+          },
+          messages: {
+            firstName: {
+              required: "First name cannot be empty",
+              minlength: "First name should be minimum 2 characters",
+            },
+            lastName: {
+              required: "Last name cannot be empty",
+              minlength: "Last name should be minimum 1 character",
+            },
+            gender: {
+              required: "Please select your gender",
+            },
+            dob: {
+              required: "Please select your date of birth",
+            },
+            email: {
+              required: "Email cannot be empty",
+              email: "Please enter a valid email address",
+            },
+            phone: {
+              required: "Phone number cannot be empty",
+              digits: "Please enter only digits",
+              minlength: "Phone number should be at least 10 digits",
+              maxlength: "phone number should not exceed 10 digits",
+            },
+            country: {
+              required: "Country cannot be empty",
+            },
+            state: {
+              required: "State cannot be empty",
+            },
+            city: {
+              required: "City cannot be empty",
+            },
+            username: {
+              required: "Username cannot be empty",
+              minlength: "Username should be at least 6 characters",
+            },
+            password: {
+              required: "Password cannot be empty",
+              minlength: "Password should be at least 8 characters",
+            },
+            confirmPassword: {
+              required: "Please confirm your password",
+              minlength: "Password should be at least 8 characters",
+              equalTo: "Passwords do not match",
+            },
+          },
+          submitHandler: function (form) {
+            alert("Form submitted successfully!");
+          },
         });
       });
     </script>
