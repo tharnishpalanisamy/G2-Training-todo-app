@@ -17,9 +17,16 @@
       href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css"
     />
     <style>
-      body {
-        background-color: whitesmoke;
-      }
+      body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #EAF7FD !important;
+    
+}
+.navbar{
+    background: #CBEFFD !important;
+    position: sticky;
+    top: 0;
+}
       .container {
         background-color: #cbeffd !important;
       }
@@ -55,6 +62,31 @@
     </style>
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand fs-2 fw-semibold brand" href="#"
+          >Checklist
+          <img src="../assets/favicon.ico" alt="" height="40px" width="40px"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+          <div
+            class="d-flex w-100 align-items-center flex-column flex-lg-row align-items-lg-center"
+          >
+          </div>
+        </div>
+      </div>
+    </nav>
     <div class="container main-container border rounded-4 p-3 px-5 mt-5">
       <h2 class="text-success">CheckList Registration</h2>
       <form action="" id="signin-form">
@@ -430,9 +462,18 @@
           Highlight:function(element){
             $(element).addClass("is-invalid")
           }, 
-          Highlight:function(element){
+          unHightlight:function(element){
             $(element).removeClass("is-invalid")
+          } ,
+          errorPlacement:function(error,element){
+            if(element.attr("name") == "gender"){
+        error.insertAfter("#other");
+    }
+    else{
+        error.insertAfter(element);
+    }
           }
+          
         });
       });
     </script>

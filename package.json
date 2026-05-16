@@ -1,0 +1,24 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tharnishpalanisamy/G2-Training-todo-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/tharnishpalanisamy/G2-Training-todo-app/issues"
+  },
+  "homepage": "https://github.com/tharnishpalanisamy/G2-Training-todo-app#readme",
+  "dependencies": {
+    "json-server": "^1.0.0-beta.15"
+  }
+}

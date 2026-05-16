@@ -1,119 +1,149 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
-    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
-    <link rel="stylesheet" href="../styles/styles.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-  </head>
-  <style>
-    body {
-      background-color: whitesmoke !important;
-    }
-    .container {
-      background-color: #cbeffd !important;
-    }
-    a {
-      text-decoration: none;
-    }
-    label {
-      color: rgb(44, 69, 191);
-    }
-    .login-container {
-      width: 75%;
-    }
-    .error {
-      color: red;
-      font-size: 14px;
-      margin-top: 5px;
-    }
-
-    @media (min-width: 992px) {
-      .login-container {
-        width: 25%;
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Login</title>
+      <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+      <link rel="stylesheet" href="../styles/styles.css" />
+      <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous"
+      />
+    </head>
+    <style>
+      body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #EAF7FD !important;
+    
+}
+.navbar{
+    background: #CBEFFD !important;
+}
+      .container {
+        background-color: #cbeffd !important;
       }
-    }
-  </style>
-  <body>
-    <div
-      class="container login-container border mt-lg-5 mt-5 rounded-3 p-2 px-5"
-    >
-      <h1 class="text-primary fw-bold">Welcome!</h1>
-      <p class="text-secondary">Login to Get Started !</p>
+      a {
+        text-decoration: none;
+      }
+      label {
+        color: rgb(44, 69, 191);
+      }
+      .login-container {
+        width: 75%;
+      }
+      .error {
+        color: red;
+        font-size: 14px;
+        margin-top: 5px;
+      }
 
-      <form action="" class="login-form" novalidate>
-        <label for="username">Username <span class="required">*</span></label>
-        <input
-          type="text"
-          name="username"
-          class="form-control mt-2 w-100"
-          id="username"
-          placeholder="Enter your username"
-        /> <br>
-        <label for="password" class=""
-          >Password <span class="required">*</span></label
+      @media (min-width: 992px) {
+        .login-container {
+          width: 25%;
+        }
+      }
+    </style>
+    <body>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand fs-2 fw-semibold brand" href="#"
+          >Checklist
+          <img src="../assets/favicon.ico" alt="" height="40px" width="40px"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-        <input
-          type="password"
-          name="password"
-          class="form-control mt-2 w-100"
-          id="password"
-          placeholder="Enter your password"
-        />
-
-        <button type="submit" class="btn btn-primary mt-4 w-100 rounded-pill">
-          Login
+          <span class="navbar-toggler-icon"></span>
         </button>
-        <p class="text-secondary mt-2">
-          Don't have an account?
-          <a href="register.html" class="text-success">Register here</a>
-        </p>
-      </form>
-    </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+          <div
+            class="d-flex w-100 align-items-center flex-column flex-lg-row align-items-lg-center"
+          >
+          </div>
+        </div>
+      </div>
+    </nav>
+      <div
+        class="container login-container border mt-lg-5 mt-5 rounded-3 p-2 px-5"
+      >
+        <h1 class="text-primary fw-bold">Welcome!</h1>
+        <p class="text-secondary">Login to Get Started !</p>
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
-    <script>
-      $(document).ready(function () {
-        $(".login-form").validate({
-          rules: {
-            username: {
-              required: true,
-              minlength: 3,
+        <form action="" class="login-form" novalidate>
+          <label for="username">Username <span class="required">*</span></label>
+          <input
+            type="text"
+            name="username"
+            class="form-control mt-2 w-100"
+            id="username"
+            placeholder="Enter your username"
+          /> <br>
+          <label for="password" class=""
+            >Password <span class="required">*</span></label
+          >
+          <input
+            type="password"
+            name="password"
+            class="form-control mt-2 w-100"
+            id="password"
+            placeholder="Enter your password"
+          />
+
+          <button type="submit" class="btn btn-primary mt-4 w-100 rounded-pill">
+            Login
+          </button>
+          <p class="text-secondary mt-2">
+            Don't have an account?
+            <a href="register.html" class="text-success">Register here</a>
+          </p>
+        </form>
+      </div>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"
+      ></script>
+      <!-- jQuery -->
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+      <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+      <script>
+        $(document).ready(function () {
+          $(".login-form").validate({
+            rules: {
+              username: {
+                required: true,
+                minlength: 3,
+              },
+              password: {
+                required: true,
+                minlength: 8,
+              },
             },
-            password: {
-              required: true,
-              minlength: 8,
+            messages: {
+              username: {
+                required: "Username cannot be empty",
+                minlength: "Username should be inimum 3 characters",
+              },
+              password: {
+                required: "Password cannot be empty",
+                minlength: "Password should be above 8 characters",
+              },
             },
-          },
-          messages: {
-            username: {
-              required: "Username cannot be empty",
-              minlength: "Username should be inimum 3 characters",
+            submitHandler: function (form) {
+              alert("Login successful!");
             },
-            password: {
-              required: "Password cannot be empty",
-              minlength: "Password should be above 8 characters",
-            },
-          },
-          submitHandler: function (form) {
-            alert("Login successful!");
-          },
+          });
         });
-      });
-    </script>
-  </body>
-</html>
+      </script>
+    </body>
+  </html>
