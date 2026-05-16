@@ -5,6 +5,10 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Login</title>
       <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+      <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
       <link rel="stylesheet" href="../styles/styles.css" />
       <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
@@ -116,34 +120,6 @@
       <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
       <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
-      <script>
-        $(document).ready(function () {
-          $(".login-form").validate({
-            rules: {
-              username: {
-                required: true,
-                minlength: 3,
-              },
-              password: {
-                required: true,
-                minlength: 8,
-              },
-            },
-            messages: {
-              username: {
-                required: "Username cannot be empty",
-                minlength: "Username should be inimum 3 characters",
-              },
-              password: {
-                required: "Password cannot be empty",
-                minlength: "Password should be above 8 characters",
-              },
-            },
-            submitHandler: function (form) {
-              alert("Login successful!");
-            },
-          });
-        });
-      </script>
+      <script src="../scripts/loginScript.js"></script>
     </body>
   </html>

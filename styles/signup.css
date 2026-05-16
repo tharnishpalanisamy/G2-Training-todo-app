@@ -1,0 +1,42 @@
+body{
+font-family: 'Poppins', sans-serif;
+background-color: #EAF7FD !important;
+
+}
+.navbar{
+background: #CBEFFD !important;
+position: sticky;
+top: 0;
+}
+.container {
+background-color: #cbeffd !important;
+}
+.ui-widget-content {
+background: transparent !important;
+border: none !important;
+}
+.ui-tabs-panel {
+background: transparent !important;
+}
+.ui-widget-header {
+background: transparent !important;
+border: none !important;
+}
+label {
+color: rgb(53, 127, 53);
+}
+.main-container {
+width: 95%;
+background-color: #cbeffd;
+}
+.error {
+color: red;
+font-size: 14px;
+margin-top: 5px;
+}
+
+@media (min-width: 992px) {
+.main-container {
+    width: 50%;
+}
+}
