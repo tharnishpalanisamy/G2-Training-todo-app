@@ -38,6 +38,3 @@ body{
 .btn-secondary{
     color: white !important;
 }
-#tabs > div{
-    min-height: 500px;
-}

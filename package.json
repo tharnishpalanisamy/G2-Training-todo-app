@@ -1,7 +1,6 @@
 {
   "name": "todo-list",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,7 +17,8 @@
     "url": "https://github.com/tharnishpalanisamy/G2-Training-todo-app/issues"
   },
   "homepage": "https://github.com/tharnishpalanisamy/G2-Training-todo-app#readme",
+  "description": "",
   "dependencies": {
-    "json-server": "^1.0.0-beta.15"
+    "json-server": "^0.17.4"
   }
 }

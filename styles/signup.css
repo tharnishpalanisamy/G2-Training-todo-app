@@ -1,7 +1,9 @@
 body{
 font-family: 'Poppins', sans-serif;
 background-color: #EAF7FD !important;
-
+}
+.brand{
+    color: #2D80DA !important;
 }
 .navbar{
 background: #CBEFFD !important;
@@ -33,6 +35,15 @@ background-color: #cbeffd;
 color: red;
 font-size: 14px;
 margin-top: 5px;
+}
+#tabs > div{
+    min-height: 500px;
+}
+.btn-success{
+    color: white !important;
+}
+.btn-secondary{
+    color: white !important;
 }
 
 @media (min-width: 992px) {

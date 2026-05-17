@@ -9,7 +9,6 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles/styles.css" />
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
@@ -21,50 +20,8 @@
       rel="stylesheet"
       href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css"
     />
-    <style>
-      body{
-    font-family: 'Poppins', sans-serif;
-    background-color: #EAF7FD !important;
-    
-}
-.navbar{
-    background: #CBEFFD !important;
-    position: sticky;
-    top: 0;
-}
-      .container {
-        background-color: #cbeffd !important;
-      }
-      .ui-widget-content {
-        background: transparent !important;
-        border: none !important;
-      }
-      .ui-tabs-panel {
-        background: transparent !important;
-      }
-      .ui-widget-header {
-        background: transparent !important;
-        border: none !important;
-      }
-      label {
-        color: rgb(53, 127, 53);
-      }
-      .main-container {
-        width: 95%;
-        background-color: #cbeffd;
-      }
-      .error {
-      color: red;
-      font-size: 14px;
-      margin-top: 5px;
-    }
+    <link rel="stylesheet" href="../styles/signup.css" />
 
-      @media (min-width: 992px) {
-        .main-container {
-          width: 50%;
-        }
-      }
-    </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -87,8 +44,7 @@
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
           <div
             class="d-flex w-100 align-items-center flex-column flex-lg-row align-items-lg-center"
-          >
-          </div>
+          ></div>
         </div>
       </div>
     </nav>
@@ -112,25 +68,28 @@
               class="form-control w-75 mt-1"
               id="firstname"
               placeholder="First Name"
-            /> <br>
-            <label for="middlename" >Enter your middle name </label>
+            />
+            <br />
+            <label for="middlename">Enter your middle name </label>
             <input
               type="text"
               name="middleName"
               class="form-control w-75 mt-1"
               id="middlename"
               placeholder="Middle Name"
-            /> <br>
+            />
+            <br />
             <label for="lastname"
               >Enter your last name <span class="required">*</span></label
-            > 
+            >
             <input
               type="text"
               name="lastName"
-              class="form-control w-75 "
+              class="form-control w-75"
               id="lastname"
               placeholder="Last Name"
-            /> <br>
+            />
+            <br />
             <label for="gender"
               >Select your gender <span class="required">*</span></label
             ><br />
@@ -141,7 +100,7 @@
             <label for="other" class="mt-2">Other</label>
             <input type="radio" name="gender" id="other" value="other" /> <br />
 
-            <label for="dob" 
+            <label for="dob"
               >Date of Birth <span class="required">*</span></label
             >
             <br />
@@ -170,9 +129,10 @@
               id="email"
               class="w-75 mt-1 form-control"
               placeholder="abc@gmail.com"
-            /> <br>
+            />
+            <br />
 
-            <label for="phone" 
+            <label for="phone"
               >Phone Number <span class="required">*</span></label
             >
             <input
@@ -181,18 +141,18 @@
               id="phone"
               class="form-control w-75 mt-1"
               placeholder="1234567890"
-            /> <br>
+            />
+            <br />
 
-            <label for="country" 
-              >Country <span class="required">*</span></label
-            >
+            <label for="country">Country <span class="required">*</span></label>
             <input
               type="text"
               name="country"
               id="country"
               class="form-control w-75 mt-1"
               placeholder="Eg-India"
-            /> <br>
+            />
+            <br />
 
             <label for="state" class="mt-2"
               >State <span class="required">*</span></label
@@ -203,11 +163,10 @@
               id="state"
               class="form-control w-75 mt-1"
               placeholder="Eg-Tamil Nadu"
-            /> <br>
+            />
+            <br />
 
-            <label for="city" 
-              >City <span class="required">*</span></label
-            >
+            <label for="city">City <span class="required">*</span></label>
             <input
               type="text"
               name="city"
@@ -224,19 +183,20 @@
 
           <!-- tab 3 -->
           <div id="tab-3">
-            <label for="username" 
+            <label for="username"
               >Username <span class="required">*</span></label
             >
             <input
-              type="text" 
+              type="text"
               name="username"
               for="username"
               id="username"
               class="mt-2 form-control w-75"
               placeholder="eg-Sastha07"
-            /> <br>
+            />
+            <br />
 
-            <label for="password" 
+            <label for="password"
               >Password <span class="required">*</span></label
             >
             <input
@@ -246,9 +206,10 @@
               id="password"
               class="mt-2 form-control w-75"
               placeholder="Enter Your Password"
-            /> <br>
+            />
+            <br />
 
-            <label for="confirm-password" 
+            <label for="confirm-password"
               >Confirm Password <span class="required">*</span></label
             >
             <input

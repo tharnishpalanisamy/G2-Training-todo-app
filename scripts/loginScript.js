@@ -20,8 +20,23 @@ $(document).ready(function () {
         minlength: "Password should be above 8 characters",
         },
     },
-    submitHandler: function (form) {
-        alert("Login successful!");
-    },
+    submitHandler: async function(form) {
+        const API = 'http://localhost:3000/users'
+        let username = $("#username").val()  
+        let password = $("#password").val()
+
+        let response = await fetch(`${API}?username=${username}&password=${password}`) 
+        let result = await response.json() 
+
+        if (result.length > 0) {
+            localStorage.setItem("user",JSON.stringify(result[0])) 
+            alert("login Successful")
+            window.location.href = "../index.html"
+        } 
+        else{
+            alert("Invalid username or password")
+        }
+
+    }
     });
 });

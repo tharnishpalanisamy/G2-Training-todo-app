@@ -1,0 +1,38 @@
+
+body{
+font-family: 'Poppins', sans-serif;
+background-color: #EAF7FD !important;
+
+}
+.brand{
+    color: #2D80DA !important;
+}
+.navbar{
+background: #CBEFFD !important;
+}
+.container {
+background-color: #cbeffd !important;
+}
+a {
+text-decoration: none;
+}
+label {
+color: rgb(44, 69, 191);
+}
+.login-container {
+width: 75%;
+}
+.error {
+color: red;
+font-size: 14px;
+margin-top: 5px;
+}
+.required{
+    color: red;
+}
+
+@media (min-width: 992px) {
+.login-container {
+    width: 25%;
+}
+}
