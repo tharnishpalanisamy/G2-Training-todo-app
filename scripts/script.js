@@ -7,7 +7,6 @@ $('#task-form').submit(function(e){
     const task = {
         userId:localStorage.getItem("userId"),
         title:$('#task-title').val(),
-        description:$('#description').val(),
         priority:$('#priority').val(),
         dueDate:$('#due-date').val() , 
         completed:false  , 
@@ -15,7 +14,6 @@ $('#task-form').submit(function(e){
 
     }
     $('#task-title').val('')
-    $('#description').val('')
     $('#priority').val('')
     $('#due-date').val('')
 
@@ -29,9 +27,10 @@ function createTask(task){
     let div = document.createElement("div")
     div.classList.add("task-card","bg-light")
     div.innerHTML = `
-        <h5>${task.title}</h5>
-        <p>${task.description}</p>
-        <p>Priority: ${task.priority}</p>
+        <div class=task-header>
+        <h5 class="task-title">${task.title}</h5>
+        <p class='${task.priority} priority'>${task.priority}</p>
+        </div>
         <p>Due Date: ${task.dueDate}</p>
     `
     document.querySelector(".task-container").appendChild(div)

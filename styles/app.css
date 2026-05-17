@@ -21,6 +21,42 @@ background-color: #cbeffd !important;
     white-space: nowrap;
 }
 
+.task-container{
+    margin-top: 50px; 
+}
 .task-card{
-    min-width: 200px;
+    background-color: whitesmoke; 
+    border: 4px solid white;
+    border-radius: 15px;
+}
+
+.task-title{
+    color: #2D80DA;
+    font-weight: 500;
+}
+.priority{
+    font-weight: 500;
+}
+.High{
+    background-color: red;
+
+}
+.Medium{
+    background-color: orange;
+}
+.Low{
+    background-color: green;
+    
+}
+.task-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 20px;
+    align-items: center;
+}
+.priority{
+    font-weight: 600;
+    color: whitesmoke;
+    border-radius: 6px;
+    padding: 5px 10px;
 }
