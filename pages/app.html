@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CHECK LIST</title>
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="../styles/app.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand fs-2 fw-semibold brand" href="#"
+          >Checklist
+          <img src="../assets/favicon.ico" alt="" height="40px" width="40px"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+          <div
+            class="d-flex w-100 align-items-center flex-column flex-lg-row align-items-lg-center"
+          ></div>
+          <div class="d-flex" role="search">
+            <h5 class="name me-4"></h5>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- app -->
+    <div class="container bg-primary w-50 mt-4 p-3">
+      <div id="app">
+        <h3 class="text-light blue fw-bold text-center">TODO LIST</h3>
+        <p class="text-secondary text-center">Manage Your Tasks Effectively</p>
+        <div class="btn-container d-flex justify-content-around gap-4 mt-4">
+          <div class="btn-left d-flex gap-3">
+            <button class="btn btn-secondary" id="pending-btn">pending</button>
+            <button class="btn btn-success" id="completed-btn">
+              Completed
+            </button>
+            <button class="btn btn-danger" id="overdue-btn">Overdue</button>
+          </div>
+          <div class="btn-right">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#taskModal"
+            >
+              + Add Task
+            </button>
+          </div>
+        </div>
+        <!-- ADD TASK MODAL -->
+        <div
+          class="modal fade"
+          id="taskModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  ADD TASK
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form id="task-form">
+                  <div class="mb-3">
+                    <label class="form-label" for="task-title">Title <span class="text-danger">*</span></label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="task-title"
+                      placeholder="Enter the title"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="description"
+                      >Description </label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="description"
+                      rows="2"
+                      placeholder="Enter the description"
+                    ></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label for="priority" class="form-label">Priority <span class="text-danger">*</span></label>
+                    <select
+                      name="priority"
+                      id="priority"
+                      class="form-control"
+                      required
+                    >
+                      <option value="">Select Priority</option>
+                      <option value="High">High</option>
+                      <option value="Medium">Medium</option>
+                      <option value="Low">Low</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="due-date" class="form-label">Due Date <span class="text-danger">*</span></label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="due-date"
+                      required
+                    />
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                      ADD Task
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- task list -->
+         <div class="task-container"></div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../scripts/script.js"></script>
+  </body>
+</html>

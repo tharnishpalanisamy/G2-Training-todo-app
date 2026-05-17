@@ -1,0 +1,26 @@
+body{
+font-family: 'Poppins', sans-serif;
+background-color: #EAF7FD !important;
+
+}
+.brand{
+    color: #2D80DA !important;
+}
+.navbar{
+background: #CBEFFD !important;
+}
+.container {
+background-color: #cbeffd !important;
+}
+.blue{
+    color: #2D80DA !important;
+}
+.name{
+    color: #2D80DA !important;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.task-card{
+    min-width: 200px;
+}
