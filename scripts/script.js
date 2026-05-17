@@ -27,11 +27,46 @@ function createTask(task){
     let div = document.createElement("div")
     div.classList.add("task-card","bg-light")
     div.innerHTML = `
-        <div class=task-header>
-        <h5 class="task-title">${task.title}</h5>
-        <p class='${task.priority} priority'>${task.priority}</p>
+        <div class="task-card">
+
+    <!-- TOP ROW -->
+
+    <div class="task-top">
+
+        <div class="left">
+
+            <h5 class="task-title">
+                ${task.title}
+            </h5>
+
+            <span class="${task.priority} priority">
+                ${task.priority}
+            </span>
+
         </div>
-        <p>Due Date: ${task.dueDate}</p>
+
+        <div class="btn-container">
+
+            <button class="btn btn-sm btn-success">
+                Edit
+            </button>
+
+            <button class="btn btn-sm btn-danger">
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- BOTTOM ROW -->
+
+    <p class="due-date">
+        Due Date: ${task.dueDate}
+    </p>
+
+</div>
     `
     document.querySelector(".task-container").appendChild(div)
 }

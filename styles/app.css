@@ -21,7 +21,7 @@ background-color: #cbeffd !important;
     white-space: nowrap;
 }
 
-.task-container{
+/* .task-container{
     margin-top: 50px; 
 }
 .task-card{
@@ -59,4 +59,99 @@ background-color: #cbeffd !important;
     color: whitesmoke;
     border-radius: 6px;
     padding: 5px 10px;
+} */
+
+.task-card{
+    background: whitesmoke;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    margin-top: 20px;
+}
+
+
+/* TOP ROW */
+
+.task-top{
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+/* LEFT SIDE */
+
+.left{
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+/* TITLE */
+
+.task-title{
+    margin: 0;
+
+    color: #2D80DA;
+
+    font-weight: 600;
+}
+
+
+/* PRIORITY */
+
+.priority{
+    padding: 4px 10px;
+
+    border-radius: 8px;
+
+    color: white;
+
+    font-weight: 600;
+
+    font-size: 14px;
+
+    display: inline-block;
+}
+
+
+/* COLORS */
+
+.High{
+    background: red;
+}
+
+.Medium{
+    background: orange;
+}
+
+.Low{
+    background: green;
+}
+
+
+/* BUTTONS */
+
+.btn-container{
+    display: flex;
+
+    gap: 10px;
+}
+
+
+/* DUE DATE */
+
+.due-date{
+    margin-top: 15px;
+
+    margin-bottom: 0;
+
+    color: #444;
 }
