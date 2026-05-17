@@ -1,10 +1,11 @@
 {
-    "users":[
-        {
-            "id": 1,
-            "username": "tharnish",
-            "password": "12345678"
-        }
-    ] , 
-    "todos":[]
+  "users": [
+    {
+      "email": "THARNISHPALANISAMY3@GMAIL.COM",
+      "username": "tharnish",
+      "password": "12345678",
+      "id": 1
+    }
+  ],
+  "todos": []
 }

@@ -1,301 +1,301 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign up</title>
-    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Sign up</title>
+      <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css"
-    />
-    <link rel="stylesheet" href="../styles/signup.css" />
+      <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous"
+      />
+      <link
+        rel="stylesheet"
+        href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css"
+      />
+      <link rel="stylesheet" href="../styles/signup.css" />
 
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand fs-2 fw-semibold brand" href="#"
-          >Checklist
-          <img src="../assets/favicon.ico" alt="" height="40px" width="40px"
-        /></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div id="navbarSupportedContent" class="collapse navbar-collapse">
-          <div
-            class="d-flex w-100 align-items-center flex-column flex-lg-row align-items-lg-center"
-          ></div>
+    </head>
+    <body>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand fs-2 fw-semibold brand" href="#"
+            >Checklist
+            <img src="../assets/favicon.ico" alt="" height="40px" width="40px"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <div
+              class="d-flex w-100 align-items-center flex-column flex-lg-row align-items-lg-center"
+            ></div>
+          </div>
         </div>
+      </nav>
+      <div class="container main-container border rounded-4 p-3 px-5 mt-5">
+        <h2 class="text-success">CheckList Registration</h2>
+        <form action="" id="signin-form">
+          <div id="tabs">
+            <ul class="d-none d-lg-flex">
+              <li><a href="#tab-1">Personal Information</a></li>
+              <li><a href="#tab-2">Contact Details</a></li>
+              <li><a href="#tab-3">Account Details</a></li>
+              <li><a href="#tab-4">Confirmation</a></li>
+            </ul>
+            <div id="tab-1">
+              <label for="firstname" class="mt-2"
+                >Enter your first name <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                name="firstName"
+                class="form-control w-75 mt-1"
+                id="firstname"
+                placeholder="First Name"
+              />
+              <br />
+              <label for="middlename">Enter your middle name </label>
+              <input
+                type="text"
+                name="middleName"
+                class="form-control w-75 mt-1"
+                id="middlename"
+                placeholder="Middle Name"
+              />
+              <br />
+              <label for="lastname"
+                >Enter your last name <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                name="lastName"
+                class="form-control w-75"
+                id="lastname"
+                placeholder="Last Name"
+              />
+              <br />
+              <label for="gender"
+                >Select your gender <span class="required">*</span></label
+              ><br />
+              <label for="male" class="mt-2">Male</label>
+              <input type="radio" name="gender" id="male" value="male" />
+              <label for="female" class="mt-2">Female</label>
+              <input type="radio" name="gender" id="female" value="female" />
+              <label for="other" class="mt-2">Other</label>
+              <input type="radio" name="gender" id="other" value="other" /> <br />
+
+              <label for="dob"
+                >Date of Birth <span class="required">*</span></label
+              >
+              <br />
+              <input
+                type="date"
+                name="dob"
+                for="dob"
+                id="dob"
+                class="form-control w-50 mt-1"
+              />
+
+              <div class="button-container mt-3 d-flex justify-content-between">
+                <button class="btn btn-secondary disabled" type="button">Previous</button>
+                <button class="btn btn-success" id="next1" type="button">Next</button>
+              </div>
+            </div>
+
+            <!-- tab 2 -->
+            <div id="tab-2">
+              <label for="email" class="mt-1"
+                >Email <span class="required">*</span></label
+              ><br />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="w-75 mt-1 form-control"
+                placeholder="abc@gmail.com"
+              />
+              <br />
+
+              <label for="phone"
+                >Phone Number <span class="required">*</span></label
+              >
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                class="form-control w-75 mt-1"
+                placeholder="1234567890"
+              />
+              <br />
+
+              <label for="country">Country <span class="required">*</span></label>
+              <input
+                type="text"
+                name="country"
+                id="country"
+                class="form-control w-75 mt-1"
+                placeholder="Eg-India"
+              />
+              <br />
+
+              <label for="state" class="mt-2"
+                >State <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                name="state"
+                id="state"
+                class="form-control w-75 mt-1"
+                placeholder="Eg-Tamil Nadu"
+              />
+              <br />
+
+              <label for="city">City <span class="required">*</span></label>
+              <input
+                type="text"
+                name="city"
+                id="city"
+                class="form-control w-75 mt-1"
+                placeholder="Eg-Chennai"
+              />
+
+              <div class="button-container mt-3 d-flex justify-content-between">
+                <button class="btn btn-secondary" id="prev1" type="button">Previous</button>
+                <button class="btn btn-success" id="next2" type="button">Next</button>
+              </div>
+            </div>
+
+            <!-- tab 3 -->
+            <div id="tab-3">
+              <label for="username"
+                >Username <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                name="username"
+                for="username"
+                id="username"
+                class="mt-2 form-control w-75"
+                placeholder="eg-Sastha07"
+              />
+              <br />
+
+              <label for="password"
+                >Password <span class="required">*</span></label
+              >
+              <input
+                type="password"
+                name="password"
+                for="password"
+                id="password"
+                class="mt-2 form-control w-75"
+                placeholder="Enter Your Password"
+              />
+              <br />
+
+              <label for="confirm-password"
+                >Confirm Password <span class="required">*</span></label
+              >
+              <input
+                type="password"
+                name="confirmPassword"
+                for="confirm-password"
+                id="confirm-password"
+                class="mt-2 form-control w-75"
+                placeholder="Confirm Your Password"
+              />
+
+              <div class="button-container mt-2 d-flex justify-content-between">
+                <button class="btn btn-secondary" id="prev2" type="button">Previous</button>
+                <button class="btn btn-success" id="next3" type="button">Next</button>
+              </div>
+            </div>
+            <!-- tab 4 -->
+            <div id="tab-4">
+              <h4 class="semi-bold">Terms & Conditions</h4>
+              <p class="text-secondary">
+                Please read the following terms carefully before creating your
+                account.
+              </p>
+
+              <div class="border bg-light p-3" style="height: auto">
+                <p>
+                  Welcome to Checklist. By creating an account, you agree to
+                  provide accurate and complete information during registration.
+                </p>
+
+                <p>
+                  Your personal information will be stored securely and will not
+                  be shared with unauthorized third parties.
+                </p>
+
+                <p>
+                  Users are responsible for maintaining the confidentiality of
+                  their account credentials and password.
+                </p>
+
+                <p>
+                  Any suspicious, harmful, or fraudulent activity may result in
+                  temporary suspension or permanent termination of the account.
+                </p>
+
+                <p>
+                  Checklist reserves the right to modify or update these terms and
+                  conditions at any time without prior notice.
+                </p>
+
+                <p>
+                  By continuing with account creation, you acknowledge that you
+                  have read, understood, and agreed to these terms and conditions.
+                </p>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="terms" name="terms" />
+                <label class="form-check-label" for="terms">
+                  I agree to the Terms & Conditions
+                  <span class="required">*</span>
+                </label>
+              </div>
+
+              <div class="button-container mt-3 d-flex justify-content-between">
+                <button class="btn btn-secondary" id="prev3" type="button">Previous</button>
+                <button type="submit" class="btn btn-success" id="createBtn">
+                  Create Account
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
-    </nav>
-    <div class="container main-container border rounded-4 p-3 px-5 mt-5">
-      <h2 class="text-success">CheckList Registration</h2>
-      <form action="" id="signin-form">
-        <div id="tabs">
-          <ul class="d-none d-lg-flex">
-            <li><a href="#tab-1">Personal Information</a></li>
-            <li><a href="#tab-2">Contact Details</a></li>
-            <li><a href="#tab-3">Account Details</a></li>
-            <li><a href="#tab-4">Confirmation</a></li>
-          </ul>
-          <div id="tab-1">
-            <label for="firstname" class="mt-2"
-              >Enter your first name <span class="required">*</span></label
-            >
-            <input
-              type="text"
-              name="firstName"
-              class="form-control w-75 mt-1"
-              id="firstname"
-              placeholder="First Name"
-            />
-            <br />
-            <label for="middlename">Enter your middle name </label>
-            <input
-              type="text"
-              name="middleName"
-              class="form-control w-75 mt-1"
-              id="middlename"
-              placeholder="Middle Name"
-            />
-            <br />
-            <label for="lastname"
-              >Enter your last name <span class="required">*</span></label
-            >
-            <input
-              type="text"
-              name="lastName"
-              class="form-control w-75"
-              id="lastname"
-              placeholder="Last Name"
-            />
-            <br />
-            <label for="gender"
-              >Select your gender <span class="required">*</span></label
-            ><br />
-            <label for="male" class="mt-2">Male</label>
-            <input type="radio" name="gender" id="male" value="male" />
-            <label for="female" class="mt-2">Female</label>
-            <input type="radio" name="gender" id="female" value="female" />
-            <label for="other" class="mt-2">Other</label>
-            <input type="radio" name="gender" id="other" value="other" /> <br />
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"
+      ></script>
+      <!-- jQuery -->
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-            <label for="dob"
-              >Date of Birth <span class="required">*</span></label
-            >
-            <br />
-            <input
-              type="date"
-              name="dob"
-              for="dob"
-              id="dob"
-              class="form-control w-50 mt-1"
-            />
+      <!-- jQuery UI -->
+      <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
 
-            <div class="button-container mt-2 d-flex justify-content-between">
-              <a href="" class="btn btn-secondary disabled">Previous</a>
-              <a href="#tab-2" class="btn btn-success" id="next1">Next</a>
-            </div>
-          </div>
-
-          <!-- tab 2 -->
-          <div id="tab-2">
-            <label for="email" class="mt-1"
-              >Email <span class="required">*</span></label
-            ><br />
-            <input
-              type="email"
-              name="email"
-              id="email"
-              class="w-75 mt-1 form-control"
-              placeholder="abc@gmail.com"
-            />
-            <br />
-
-            <label for="phone"
-              >Phone Number <span class="required">*</span></label
-            >
-            <input
-              type="tel"
-              name="phone"
-              id="phone"
-              class="form-control w-75 mt-1"
-              placeholder="1234567890"
-            />
-            <br />
-
-            <label for="country">Country <span class="required">*</span></label>
-            <input
-              type="text"
-              name="country"
-              id="country"
-              class="form-control w-75 mt-1"
-              placeholder="Eg-India"
-            />
-            <br />
-
-            <label for="state" class="mt-2"
-              >State <span class="required">*</span></label
-            >
-            <input
-              type="text"
-              name="state"
-              id="state"
-              class="form-control w-75 mt-1"
-              placeholder="Eg-Tamil Nadu"
-            />
-            <br />
-
-            <label for="city">City <span class="required">*</span></label>
-            <input
-              type="text"
-              name="city"
-              id="city"
-              class="form-control w-75 mt-1"
-              placeholder="Eg-Chennai"
-            />
-
-            <div class="button-container mt-2 d-flex justify-content-between">
-              <a href="#tab-1" class="btn btn-secondary" id="prev1">Previous</a>
-              <a href="#tab-3" class="btn btn-success" id="next2">Next</a>
-            </div>
-          </div>
-
-          <!-- tab 3 -->
-          <div id="tab-3">
-            <label for="username"
-              >Username <span class="required">*</span></label
-            >
-            <input
-              type="text"
-              name="username"
-              for="username"
-              id="username"
-              class="mt-2 form-control w-75"
-              placeholder="eg-Sastha07"
-            />
-            <br />
-
-            <label for="password"
-              >Password <span class="required">*</span></label
-            >
-            <input
-              type="password"
-              name="password"
-              for="password"
-              id="password"
-              class="mt-2 form-control w-75"
-              placeholder="Enter Your Password"
-            />
-            <br />
-
-            <label for="confirm-password"
-              >Confirm Password <span class="required">*</span></label
-            >
-            <input
-              type="password"
-              name="confirmPassword"
-              for="confirm-password"
-              id="confirm-password"
-              class="mt-2 form-control w-75"
-              placeholder="Confirm Your Password"
-            />
-
-            <div class="button-container mt-2 d-flex justify-content-between">
-              <a href="#tab-2" class="btn btn-secondary" id="prev2">Previous</a>
-              <a href="#tab-4" class="btn btn-success" id="next3">Next</a>
-            </div>
-          </div>
-          <!-- tab 4 -->
-          <div id="tab-4">
-            <h4 class="semi-bold">Terms & Conditions</h4>
-            <p class="text-secondary">
-              Please read the following terms carefully before creating your
-              account.
-            </p>
-
-            <div class="border bg-light p-3" style="height: auto">
-              <p>
-                Welcome to Checklist. By creating an account, you agree to
-                provide accurate and complete information during registration.
-              </p>
-
-              <p>
-                Your personal information will be stored securely and will not
-                be shared with unauthorized third parties.
-              </p>
-
-              <p>
-                Users are responsible for maintaining the confidentiality of
-                their account credentials and password.
-              </p>
-
-              <p>
-                Any suspicious, harmful, or fraudulent activity may result in
-                temporary suspension or permanent termination of the account.
-              </p>
-
-              <p>
-                Checklist reserves the right to modify or update these terms and
-                conditions at any time without prior notice.
-              </p>
-
-              <p>
-                By continuing with account creation, you acknowledge that you
-                have read, understood, and agreed to these terms and conditions.
-              </p>
-            </div>
-
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="terms" />
-              <label class="form-check-label" for="terms">
-                I agree to the Terms & Conditions
-                <span class="required">*</span>
-              </label>
-            </div>
-
-            <div class="button-container mt-2 d-flex justify-content-between">
-              <a href="#tab-3" class="btn btn-secondary" id="prev3">Previous</a>
-              <button type="submit" class="btn btn-success" id="createBtn">
-                Create Account
-              </button>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-    <!-- jQuery UI -->
-    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
-
-    <script src="../scripts/signupScript.js"></script>
-  </body>
-</html>
+      <script src="../scripts/signupScript.js"></script>
+    </body>
+  </html>

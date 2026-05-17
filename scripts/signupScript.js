@@ -1,15 +1,45 @@
     $(document).ready(function () {
     //next buttons
     $("#tabs").tabs();
-    $("#next1").click(function () {
+    $("#next1").click(function (e) {
+
+    e.preventDefault();
+
+    if (
+        $("#firstname").valid() &&
+        $("#lastname").valid() &&
+        $("input[name='gender']").valid() &&
+        $("#dob").valid()
+    ) {
         $("#tabs").tabs("option", "active", 1);
-    });
-    $("#next2").click(function () {
+    }
+});
+    $("#next2").click(function (e) {
+
+    e.preventDefault();
+
+    if (
+        $("#email").valid() &&
+        $("#phone").valid() &&
+        $("#country").valid() &&
+        $("#state").valid() &&
+        $("#city").valid()
+    ) {
         $("#tabs").tabs("option", "active", 2);
-    });
-    $("#next3").click(function () {
+    }
+});
+    $("#next3").click(function (e) {
+
+    e.preventDefault();
+
+    if (
+        $("#username").valid() &&
+        $("#password").valid() &&
+        $("#confirm-password").valid()
+    ) {
         $("#tabs").tabs("option", "active", 3);
-    });
+    }
+});
 
     //previous buttons
     $("#prev1").click(function () {
@@ -123,18 +153,42 @@
             equalTo: "Passwords do not match",
         },
         },
-        submitHandler: function (form) {
-        alert("Form submitted successfully!");
+        submitHandler: function (form, event) {
+    event.preventDefault();
+
+    const API = 'http://localhost:3000/users'
+
+    let email = $("#email").val()
+    let username = $("#username").val()
+    let password = $("#password").val()
+
+    fetch(API, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
         },
-        Highlight:function(element){
-        $(element).addClass("is-invalid")
-        }, 
-        unHightlight:function(element){
-        $(element).removeClass("is-invalid")
-        } ,
+        body: JSON.stringify({
+            email: email,
+            username: username,
+            password: password
+        })
+    })
+    .then(() => {
+        alert("Account Created Successfully")
+        window.location.href = 'login.html'
+    })
+
+    return false;
+},
+        highlight:function(element){
+    $(element).addClass("is-invalid")
+}, 
+unhighlight:function(element){
+    $(element).removeClass("is-invalid")
+} ,
         errorPlacement:function(error,element){
         if(element.attr("name") == "gender"){
-    error.insertAfter("#other");
+        error.insertAfter("#other");
 }
 else{
     error.insertAfter(element);
