@@ -122,7 +122,7 @@ function createTask(task){
                 </div> 
                     
                 <div class = 'task-header-right d-flex gap-2'> 
-                    <button type='button' class = 'btn btn-warning' > Edit </button>
+                    <button type='button' class = 'btn btn-warning editBtn' > Edit </button>
                     <button type='button' class = 'btn btn-danger' > Delete </button> 
                 </div> 
             </div>
@@ -143,4 +143,14 @@ function createTask(task){
     document.querySelector(".task-container")
         .appendChild(div)
 }
+document.addEventListener('click',function(event){
+    if(event.target.classList.contains('editBtn')){
+        alert('edit button is working')
+    }
 })
+
+
+
+
+}
+)
