@@ -1,10 +1,13 @@
 $(document).ready(function () {
+
     $(".login-form").validate({
+
         rules: {
             username: {
                 required: true,
                 minlength: 3,
             },
+
             password: {
                 required: true,
                 minlength: 8,
@@ -23,11 +26,10 @@ $(document).ready(function () {
             },
         },
 
-        submitHandler: function (form, event) {
-
-            event.preventDefault(); // IMPORTANT
+        submitHandler: function () {
 
             loginUser();
+
         }
     });
 
@@ -35,40 +37,41 @@ $(document).ready(function () {
 
         const API = 'http://localhost:3000/users';
 
-        let username = $("#username").val();
-        let password = $("#password").val();
+        const username = $("#username").val();
+        const password = $("#password").val();
 
         try {
 
-            let response = await fetch(
+            let data = await fetch(
                 `${API}?username=${username}&password=${password}`
             );
 
-            let result = await response.json();
+            let response = await data.json();
 
-            console.log(result);
+            console.log(response);
 
-            if (result.length > 0) {
+            if (response.length > 0) {
+
+                alert("Login successful");
 
                 localStorage.setItem(
-                    "user",
-                    JSON.stringify(result[0])
+                    'user',
+                    JSON.stringify(response[0])
                 );
 
-                alert("Login Successful");
-
-                window.location.href = "app.html";
+                window.location.href = 'app.html';
 
             } else {
 
                 alert("Invalid username or password");
             }
 
-        } catch (error) {
+        }
 
-            console.log(error);
+        catch (error) {
 
-            alert("Server Error");
+            console.log("error occurred", error);
         }
     }
+
 });
