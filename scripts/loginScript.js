@@ -31,7 +31,7 @@ $(document).ready(function () {
         if (result.length > 0) {
             localStorage.setItem("user",JSON.stringify(result[0])) 
             alert("login Successful")
-            window.location.href = "../index.html"
+            window.location.href = "app.html"
         } 
         else{
             alert("Invalid username or password")

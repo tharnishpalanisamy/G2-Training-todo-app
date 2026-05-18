@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/tharnishpalanisamy/G2-Training-todo-app#readme",
   "description": "",
-  "dependencies": {
+  "devDependencies": {
     "json-server": "^0.17.4"
   }
 }

@@ -20,138 +20,17 @@ background-color: #cbeffd !important;
     font-weight: 500;
     white-space: nowrap;
 }
-
-/* .task-container{
+.completed-checkbox{
+    transform: scale(2);
+}
+.task-container{
     margin-top: 50px; 
+    background: rgb(236, 233, 233);
 }
-.task-card{
-    background-color: whitesmoke; 
+.task-item{
+    margin: 20px 0px;
+    background-color: whitesmoke;
     border: 4px solid white;
-    border-radius: 15px;
-}
-
-.task-title{
-    color: #2D80DA;
-    font-weight: 500;
-}
-.priority{
-    font-weight: 500;
-}
-.High{
-    background-color: red;
-
-}
-.Medium{
-    background-color: orange;
-}
-.Low{
-    background-color: green;
-    
-}
-.task-header{
-    display: flex;
-    justify-content: space-between;
-    padding: 2px 20px;
-    align-items: center;
-}
-.priority{
-    font-weight: 600;
-    color: whitesmoke;
     border-radius: 6px;
-    padding: 5px 10px;
-} */
-
-.task-card{
-    background: whitesmoke;
-
-    padding: 20px;
-
-    border-radius: 15px;
-
-    margin-top: 20px;
 }
 
-
-/* TOP ROW */
-
-.task-top{
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-}
-
-
-/* LEFT SIDE */
-
-.left{
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-}
-
-
-/* TITLE */
-
-.task-title{
-    margin: 0;
-
-    color: #2D80DA;
-
-    font-weight: 600;
-}
-
-
-/* PRIORITY */
-
-.priority{
-    padding: 4px 10px;
-
-    border-radius: 8px;
-
-    color: white;
-
-    font-weight: 600;
-
-    font-size: 14px;
-
-    display: inline-block;
-}
-
-
-/* COLORS */
-
-.High{
-    background: red;
-}
-
-.Medium{
-    background: orange;
-}
-
-.Low{
-    background: green;
-}
-
-
-/* BUTTONS */
-
-.btn-container{
-    display: flex;
-
-    gap: 10px;
-}
-
-
-/* DUE DATE */
-
-.due-date{
-    margin-top: 15px;
-
-    margin-bottom: 0;
-
-    color: #444;
-}

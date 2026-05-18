@@ -53,7 +53,7 @@
         <p class="text-secondary text-center">Manage Your Tasks Effectively</p>
         <div class="btn-container d-flex justify-content-around gap-4 mt-4">
           <div class="btn-left d-flex gap-3">
-            <button class="btn btn-secondary" id="pending-btn">pending</button>
+            <button class="btn btn-warning text-light" id="pending-btn">pending</button>
             <button class="btn btn-success" id="completed-btn">
               Completed
             </button>
@@ -102,6 +102,10 @@
                       placeholder="Enter the title"
                       required
                     />
+                  </div>
+                  <div class="mb-3">
+                    <label for="description" class="form-label">Description</label> 
+                    <textarea name="description" id="description" rows="2" class="form-control" placeholder="Enter the description"></textarea>
                   </div>
                   <div class="mb-3">
                     <label for="priority" class="form-label">Priority <span class="text-danger">*</span></label>

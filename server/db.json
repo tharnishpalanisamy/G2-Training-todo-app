@@ -7,5 +7,104 @@
       "id": 1
     }
   ],
-  "todos": []
+  "todos": [
+    {
+      "taskId": 1779103786781,
+      "userId": 1,
+      "title": "complete todo",
+      "description": "this is a sample",
+      "priority": "High",
+      "dueDate": "2026-05-17",
+      "completed": false,
+      "deleted": false,
+      "status": "pending",
+      "createdAt": "2026-05-18T11:29:46.781Z",
+      "updatedAt": "2026-05-18T11:29:46.782Z",
+      "id": 1
+    },
+    {
+      "taskId": 1779103857903,
+      "userId": 1,
+      "title": "complete todo",
+      "description": "1",
+      "priority": "High",
+      "dueDate": "0111-11-11",
+      "completed": false,
+      "deleted": false,
+      "status": "pending",
+      "createdAt": "2026-05-18T11:30:57.904Z",
+      "updatedAt": "2026-05-18T11:30:57.904Z",
+      "id": 2
+    },
+    {
+      "taskId": 1779103987736,
+      "userId": 1,
+      "title": "complete todo",
+      "description": "",
+      "priority": "High",
+      "dueDate": "0011-11-11",
+      "completed": false,
+      "deleted": false,
+      "status": "pending",
+      "createdAt": "2026-05-18T11:33:07.736Z",
+      "updatedAt": "2026-05-18T11:33:07.737Z",
+      "id": 3
+    },
+    {
+      "taskId": 1779104102023,
+      "userId": 1,
+      "title": "complete todo",
+      "description": "this is alos sample",
+      "priority": "High",
+      "dueDate": "1111-11-11",
+      "completed": false,
+      "deleted": false,
+      "status": "pending",
+      "createdAt": "2026-05-18T11:35:02.023Z",
+      "updatedAt": "2026-05-18T11:35:02.023Z",
+      "id": 4
+    },
+    {
+      "taskId": 1779104176495,
+      "userId": 1,
+      "title": "complete todo",
+      "description": "",
+      "priority": "High",
+      "dueDate": "1111-11-11",
+      "completed": false,
+      "deleted": false,
+      "status": "pending",
+      "createdAt": "2026-05-18T11:36:16.495Z",
+      "updatedAt": "2026-05-18T11:36:16.495Z",
+      "id": 5
+    },
+    {
+      "taskId": 1779104190479,
+      "userId": 1,
+      "title": "complete todo",
+      "description": "",
+      "priority": "High",
+      "dueDate": "0001-11-11",
+      "completed": false,
+      "deleted": false,
+      "status": "pending",
+      "createdAt": "2026-05-18T11:36:30.479Z",
+      "updatedAt": "2026-05-18T11:36:30.479Z",
+      "id": 6
+    },
+    {
+      "taskId": 1779105184422,
+      "userId": 1,
+      "title": "complete todo",
+      "description": "ss",
+      "priority": "High",
+      "dueDate": "0001-11-11",
+      "completed": false,
+      "deleted": false,
+      "status": "pending",
+      "createdAt": "2026-05-18T11:53:04.422Z",
+      "updatedAt": "2026-05-18T11:53:04.422Z",
+      "id": 7
+    }
+  ]
 }
