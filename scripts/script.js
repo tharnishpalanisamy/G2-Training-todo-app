@@ -1,11 +1,54 @@
+$(document).ready(function(){
 let name = document.querySelector(".name")
 let user = JSON.parse(localStorage.getItem("user"))
-name.innerText = `Welcome, ${user.username}`
-$('#task-form').submit(function(e){
-    e.preventDefault() 
+
+if(!name) {
+    window.location.href = '../index.html'
+}
+name.innerText = `Welcome, ${user.username}` 
+
+async function loadTask(){
+    try{
+        let data = await fetch('http://localhost:3000/todos') 
+        let tasks = await data.json()
+        tasks.filter(task=>task.userId === user.id).forEach(task=>createTask(task))
+    }
+    catch(error){
+        console.error("Failed to load tasks",error)
+    }
+}
+loadTask()
+async function postTask(task) {
+        try{
+            let postedData = await fetch('http://localhost:3000/todos' , {
+            method:'POST' , 
+            headers:{
+                'content-type':'application/json' 
+            } , 
+            body:JSON.stringify(task)
+            
+            })
+            if(!postedData.ok){
+                throw new Error("Posting failed")
+            }
+            let result = await postedData.json() 
+            console.log(result);
+        }
+        catch(error) {
+            console.log(error);
+            
+        }
+        
+    }
+$("#addTaskBtn").on('click',function(){
+
+    if (!$('#task-title').val() || !$('#priority').val() || !$('#due-date').val()) {
+        alert('Please fill in required fields')
+        return
+    }
 
     const task = {
-        taskId:Date.now(), 
+        id:Date.now(), 
         userId:user.id,
         title:$('#task-title').val(),
         description:$('#description').val(),
@@ -22,27 +65,12 @@ $('#task-form').submit(function(e){
     $('#priority').val('')
     $('#due-date').val('')
 
-    createTask(task)
-    async function postTask() {
-        try{
-            let postedData = await fetch('http://localhost:3000/todos' , {
-            method:'POST' , 
-            headers:{
-                'content-type':'application/json' 
-            } , 
-            body:JSON.stringify(task)
-            
-            })
-            let result = await postedData.json() 
-            console.log(result);
-        }
-        catch(error) {
-            console.log(error);
-            
-        }
-        
-    }
-    postTask()
+    postTask(task)
+    console.log(task);
+    
+    
+    
+    
     bootstrap.Modal
     .getOrCreateInstance(
         document.getElementById('taskModal')
@@ -115,3 +143,4 @@ function createTask(task){
     document.querySelector(".task-container")
         .appendChild(div)
 }
+})
