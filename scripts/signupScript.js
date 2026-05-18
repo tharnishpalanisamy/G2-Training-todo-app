@@ -173,12 +173,17 @@
             password: password
         })
     })
-    .then(() => {
-        alert("Account Created Successfully")
-        window.location.href = 'login.html'
-    })
-
-    return false;
+    .then((res) => {
+        if(!res.ok) {
+            throw new Error('account creation failed')
+        }
+        return res.json()
+    }).then((res)=>{
+        console.log('user created'); 
+        alert("account created") 
+        window.location.href = 'login.html'   
+    }).catch(error=>console.log(error))
+    return false 
 },
         highlight:function(element){
     $(element).addClass("is-invalid")

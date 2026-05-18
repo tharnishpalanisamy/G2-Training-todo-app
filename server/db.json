@@ -11,6 +11,24 @@
       "username": "walter_07",
       "password": "123456789@wW",
       "id": 2
+    },
+    {
+      "email": "tharnishpalanisamy3@gmail.com",
+      "username": "admin01",
+      "password": "12345678",
+      "id": 3
+    },
+    {
+      "email": "tharnishpalanisamy3@gmail.com",
+      "username": "admin02",
+      "password": "12345678",
+      "id": 4
+    },
+    {
+      "email": "tharnishpalanisamy3@gmail.com",
+      "username": "admin03",
+      "password": "12345678",
+      "id": 5
     }
   ],
   "todos": [
