@@ -148,6 +148,85 @@
           </div>
         </div>
 
+        <!-- edit task -->
+         <div
+          class="modal fade"
+          id="editTaskModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  Edit TASK
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <input type="hidden" id="edit-id">
+                <div id="task-form">
+                  <div class="mb-3">
+                    <label class="form-label" for="task-title">Title <span class="text-danger">*</span></label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="edit-title"
+                      placeholder="Enter the title"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="description" class="form-label">Description</label> 
+                    <textarea name="description" id="edit-description" rows="2" class="form-control" placeholder="Enter the description"></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label for="priority" class="form-label">Priority <span class="text-danger">*</span></label>
+                    <select
+                      name="priority"
+                      id="edit-priority"
+                      class="form-control"
+                      required
+                    >
+                      <option value="">Select Priority</option>
+                      <option value="High">High</option>
+                      <option value="Medium">Medium</option>
+                      <option value="Low">Low</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="due-date" class="form-label">Due Date <span class="text-danger">*</span></label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="edit-due-date"
+                      required
+                    />
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button type="button" class="btn btn-primary" id="updateTaskBtn">
+                      Update Task
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- task list -->
          <div class="task-container"></div>
       </div>
