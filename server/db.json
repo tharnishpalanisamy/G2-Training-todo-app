@@ -33,16 +33,8 @@
   ],
   "todos": [
     {
-      "id": 1779187891365,
-      "userId": 1,
-      "title": "pending hi  lier",
-      "description": "this is a pending task  ooo",
-      "priority": "Medium",
-      "dueDate": "2026-05-30",
-      "completed": false,
-      "deleted": true,
-      "status": "pending",
-      "updatedAt": "2026-05-19T11:49:14.357Z"
+      "deleted": false,
+      "id": 1779187891365
     },
     {
       "id": 1779187914764,
@@ -52,8 +44,8 @@
       "priority": "High",
       "dueDate": "2026-05-25",
       "completed": false,
-      "deleted": true,
-      "status": "pending",
+      "deleted": false,
+      "status": "overdue",
       "updatedAt": "2026-05-19T11:02:49.085Z"
     },
     {
@@ -64,8 +56,8 @@
       "priority": "Low",
       "dueDate": "2026-05-17",
       "completed": false,
-      "deleted": true,
-      "status": "delete",
+      "deleted": false,
+      "status": "overdue",
       "updatedAt": "2026-05-19T11:43:19.996Z"
     },
     {
@@ -132,18 +124,8 @@
       "status": "overdue"
     },
     {
-      "id": 1779193554313,
-      "userId": 1,
-      "title": "complete todo",
-      "description": "",
-      "priority": "Low",
-      "dueDate": "2026-12-22",
-      "completed": false,
-      "deleted": true,
-      "overDue": false,
-      "status": "delete",
-      "createdAt": "2026-05-19T12:25:54.313Z",
-      "updatedAt": "2026-05-19T12:25:54.313Z"
+      "deleted": false,
+      "id": 1779193554313
     },
     {
       "id": 1779193625849,
