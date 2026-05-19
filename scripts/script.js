@@ -2,6 +2,38 @@
     let name = document.querySelector(".name")
     let user = JSON.parse(localStorage.getItem("user"))
     let curPage = 'pending'
+    //for rendering
+    async function renderCurrentPage(){
+        document.querySelector(".task-container").innerHTML = ""
+        if(curPage === 'pending'){
+            await loadTask()
+        }
+        else if(curPage === 'completed'){
+            await displayCompleteTasks()
+        }
+        else if(curPage === 'overdue'){
+            await displayOverDueTasks()
+        }
+    }
+
+    //for finding status
+    function getTaskStatus(task){
+
+    let curDate = new Date()
+    let dueDate = new Date(task.dueDate)
+
+    if(task.completed){
+        return 'completed'
+    }
+
+    if(curDate > dueDate){
+        return 'overdue'
+    }
+
+    return 'pending'
+}
+
+
     if(!name) {
         window.location.href = '../index.html'
     }
@@ -213,7 +245,7 @@ $('#updateTaskBtn').on('click', async function(){
         .getOrCreateInstance(document.getElementById('editTaskModal'))
         .hide()
 
-    location.reload()
+    await renderCurrentPage()
 })  
 
 async function deleteTask(task){
@@ -227,6 +259,7 @@ async function deleteTask(task){
         } , 
         body:JSON.stringify(task)
     })
+    await renderCurrentPage()
 }
 $(document).on('click',async function(event){
     if(event.target.classList.contains("deleteBtn")) {
@@ -236,16 +269,7 @@ $(document).on('click',async function(event){
 
         let task = await response.json() 
 
-        deleteTask(task) 
-        if (curPage == 'pending') {
-            loadTask() 
-        }
-        else if (curPage == 'completed'){
-            displayCompleteTasks()
-        }
-        else{
-            displayOverDueTasks()
-        }
+        await deleteTask(task) 
 
     }
 })
@@ -290,14 +314,14 @@ $(document).on('change',async function(event){
             } , 
             body:JSON.stringify(task)
         })
-        location.reload()
+        await renderCurrentPage()
         
     }
 })
 //show pending tasks 
 $("#pending-btn").on('click',async function(){
-    document.querySelector('.task-container').innerHTML = "" 
-    loadTask()
+    curPage = 'pending' 
+    await renderCurrentPage() 
 })
 
 //show completed takss 
@@ -314,8 +338,8 @@ async function displayCompleteTasks(){
     
 //completed btn 
 $('#completed-btn').on('click',async function(event){
-    document.querySelector(".task-container").innerHTML = ""
-    await displayCompleteTasks()
+    curPage = 'completed' 
+    await renderCurrentPage()
 })
 
 
@@ -346,8 +370,8 @@ async function displayOverDueTasks(){
 }
 
 $("#overdue-btn").on('click',async function(){
-    document.querySelector(".task-container").innerHTML = "" 
-    await displayOverDueTasks()
+    curPage = "overdue" 
+    await renderCurrentPage()
 })
 
 })
