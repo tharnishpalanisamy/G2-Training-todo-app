@@ -1,4 +1,4 @@
-    $(document).ready(function(){
+ $(document).ready(function(){
     let name = document.querySelector(".name")
     let user = JSON.parse(localStorage.getItem("user"))
     let curPage = 'pending'
@@ -13,6 +13,9 @@
         }
         else if(curPage === 'overdue'){
             await displayOverDueTasks()
+        }
+        else if(curPage == 'deleted'){
+            await displayDeletedTasks()
         }
     }
 
@@ -82,7 +85,7 @@
             }
             
         }
-    $("#addTaskBtn").on('click',function(){
+    $("#addTaskBtn").on('click',async function(){
 
         if (!$('#task-title').val() || !$('#priority').val() || !$('#due-date').val()) {
             alert('Please fill in required fields')
@@ -108,23 +111,21 @@
         $('#priority').val('')
         $('#due-date').val('')
 
-        postTask(task)
+        await postTask(task)
         console.log(task);
-        
-        
-        
-        
+
         bootstrap.Modal
         .getOrCreateInstance(
             document.getElementById('taskModal')
         )
         .hide()
+        await renderCurrentPage()
 
     })
     //task creation  
 
     function createTask(task){
-        if (task.deleted === true){
+        if (task.deleted === true && curPage != 'deleted'){
             return
         }
 
@@ -142,16 +143,19 @@
             stars = "⭐"
         }
 
-        let status = task.status 
+        let status = getTaskStatus(task) 
         let statusClass
-        if (status=="pending") {
-            statusClass = "btn-warning"
+        if (getTaskStatus(task)==="pending") {
+            statusClass = "btn-outline-info"
         }
-        else if (status=="completed") {
-            statusClass = "btn-success"
+        else if (getTaskStatus(task)==="completed") {
+            statusClass = "btn-outline-success"
         }
-        else if (status=="overdue") {
-            statusClass = "btn-danger"
+        else if (getTaskStatus(task)==="overdue") {
+            statusClass = "btn-outline-warning "
+        }
+        else if(task.deleted){
+            statusClass = 'btn-outline-danger'
         }
 
 
@@ -160,7 +164,7 @@
 
         let checked = ""
 
-        if(task.completed === true){
+        if(task.completed === true ){
             checked = "checked"
         }
         div.innerHTML = `
@@ -181,7 +185,7 @@
                 <div class = 'task-body d-flex flex-column gap-2'> 
                     <div class = 'task-body-left d-flex gap-2 align-items-center pt-1' > 
                         <h5 class = 'fw-bold pt-1' > Due Date : ${task.dueDate} </h5> 
-                        <a class = 'btn ${statusClass} text-light rounded-pill' > ${task.status} </a>
+                        <a class = 'btn ${statusClass} rounded-pill' > ${task.status} </a>
                     </div> 
                     <div class = 'task-description' > 
                         <p class = 'text-secondary' > ${task.description} </p>
@@ -195,6 +199,8 @@
             .appendChild(div)
     }
 let currentEditTask = null
+
+//edit button
 document.addEventListener('click', async function(event){
 
     if(event.target.classList.contains('editBtn')){
@@ -229,8 +235,12 @@ $('#updateTaskBtn').on('click', async function(){
         dueDate: $("#edit-due-date").val(),
         completed: currentEditTask.completed,
         deleted: currentEditTask.deleted,
-        status: currentEditTask.status,
         updatedAt: new Date().toISOString(),
+        status:currentEditTask.completed
+        ? 'completed'
+        : new Date() > new Date($("#edit-due-date").val())
+        ? 'overdue'
+        : 'pending'
     }
 
     await fetch(`http://localhost:3000/todos/${id}`,{
@@ -247,7 +257,7 @@ $('#updateTaskBtn').on('click', async function(){
 
     await renderCurrentPage()
 })  
-
+//delete
 async function deleteTask(task){
     task.status = 'delete' 
     task.deleted = true 
@@ -286,24 +296,16 @@ $(document).on('change',async function(event){
 
         let isChecked = event.target.checked 
         
-        if(isChecked){
-            task.completed = true 
+        task.completed = isChecked 
+
+        if(task.completed){
             task.status = 'completed'
         }
+        else if (new Date() > new Date(task.dueDate)) {
+            task.status = 'overdue'
+        }
         else{
-            task.completed = false 
-
-            let curDate = new Date() 
-            let dueDate = new Date(task.dueDate) 
-
-            if(curDate > dueDate) {
-                task.status = 'overdue' 
-                task.overDue = true 
-            }
-            else{
-                task.status = 'pending' 
-                
-            }
+            task.status = 'pending'
         }
 
 
@@ -374,4 +376,66 @@ $("#overdue-btn").on('click',async function(){
     await renderCurrentPage()
 })
 
+
+//deleted 
+async function displayDeletedTasks(){
+    const API = ' http://localhost:3000/todos' 
+
+    let response = await fetch(API) 
+    let tasks = await response.json() 
+
+    tasks.filter(task=>task.deleted === true && task.userId === user.id)
+    .forEach(task=>{
+        createDeletedTask(task)
+    })
+}
+
+function createDeletedTask (task){
+
+    let div = document.createElement("div") 
+    div.classList.add(".task-card")
+    let stars = "" 
+    if (task.priority == 'High') stars = '⭐⭐⭐' 
+    else if(task.priority =='Medium') stars = '⭐⭐⭐' 
+    else if(task.priority == 'Low') stars = '⭐' 
+    div.innerHTML = `
+            <div class='task-item p-2 '> 
+                <div class='task-header d-flex justify-content-between px-2'> 
+                    <div class = 'task-header-left d-flex gap-4'>
+                        <h3 class='fw-bold blue' > ${task.title} </h3> 
+                        <p>${stars} </p> 
+                    </div> 
+                        
+                    <div class = 'task-header-right d-flex gap-2'> 
+                        <button type='button' class = 'btn btn-success restoreBtn' data-id='${task.id}'  > Restore </button> 
+                    </div> 
+                </div>
+                
+                <div class = 'task-body d-flex flex-column gap-2'> 
+                    <div class = 'task-body-left d-flex gap-2 align-items-center pt-1' > 
+                        <h5 class = 'fw-bold pt-1' > Due Date : ${task.dueDate} </h5> 
+                        <a class = 'btn btn-outline-danger rounded-pill' > deleted </a>
+                    </div> 
+                    <div class = 'task-description' > 
+                        <p class = 'text-secondary' > ${task.description} </p>
+                    </div>
+
+                </div>
+            </div>
+            `
+            document.querySelector(".task-container")
+            .appendChild(div)
+}
+$("#DeletedTasksBtn").on('click',async function(){
+        curPage = 'deleted'
+        renderCurrentPage()
 })
+
+//restore 
+$(document).on('click',function(event){
+    if(event.target.classList.contains('restoreBtn')){
+        alert("working")
+    }
+})
+}) 
+
