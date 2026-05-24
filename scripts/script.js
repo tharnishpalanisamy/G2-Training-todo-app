@@ -20,21 +20,18 @@
                 }
 
                 //for finding status
-                function getTaskStatus(task){
+                function getTaskStatus(task) {
+    let curDate = new Date()
+    let dueDate = new Date(task.dueDate)
 
-                let curDate = new Date()
-                let dueDate = new Date(task.dueDate)
+    curDate.setHours(0, 0, 0, 0)
+    dueDate.setHours(0, 0, 0, 0)
 
-                if(task.completed){
-                    return 'completed'
-                }
+    if (task.completed) return 'completed'
+    if (curDate > dueDate) return 'overdue'   
 
-                if(curDate > dueDate){
-                    return 'overdue'
-                }
-
-                return 'pending'
-            }
+    return 'pending'
+}
 
 
                 if(!name) {
