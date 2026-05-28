@@ -1,7 +1,14 @@
             $(document).ready(function(){
                 let name = document.querySelector(".name")
+                let profileName = document.querySelector(".profile")
                 let user = JSON.parse(localStorage.getItem("user"))
                 let curPage = 'pending'
+
+                if(!name) {
+                    window.location.href = '../index.html'
+                }
+                name.innerHTML = `${user.username}` 
+                profileName.innerHTML = `${user.username}`
                 //for rendering
                 async function renderCurrentPage(){
                     document.querySelector(".task-container").innerHTML = ""
@@ -34,10 +41,7 @@
 }
 
 
-                if(!name) {
-                    window.location.href = '../index.html'
-                }
-                name.innerText = `Welcome, ${user.username}` 
+                
 
                 async function loadTask(){
                     try{
@@ -311,13 +315,22 @@
             let card = event.target.closest('.task-card')
 
             if(curPage === 'pending' && task.completed){
-                card.remove()
+                card.classList.add('removing')
+                setTimeout(()=>{
+                    card.remove()
+                },300)
             }
             else if(curPage === 'completed' && !task.completed){
-                card.remove()
+                card.classList.add('removing')
+                setTimeout(()=>{
+                    card.remove()
+                },300)
             }
             else if(curPage === 'overdue' && task.completed){
-                card.remove()
+                card.classList.add('removing')
+                setTimeout(()=>{
+                    card.remove()
+                },300)
             }
         }
 })
@@ -383,7 +396,7 @@
             function createDeletedTask (task){
 
                 let div = document.createElement("div") 
-                div.classList.add(".task-card")
+                div.classList.add("task-card")
                 div.dataset.id = task.id
                 let stars = "" 
                 if (task.priority == 'High') stars = '⭐⭐⭐' 

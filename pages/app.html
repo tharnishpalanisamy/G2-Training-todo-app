@@ -9,12 +9,13 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <link rel="stylesheet" href="../styles/app.css" />
   </head>
@@ -41,11 +42,69 @@
             class="d-flex w-100 align-items-center flex-column flex-lg-row align-items-lg-center"
           ></div>
           <div class="d-flex" role="search">
-            <h5 class="name me-4"></h5>
+            <div
+              class="profile-btn d-flex align-items-center gap-2"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#profileCanvas"
+              style="cursor: pointer;"
+            >
+              <i class="fa-regular fa-circle-user fs-4 fa-lg blue"></i>
+              <h5 class="name m-0">hi</h5>
+            </div>
           </div>
         </div>
       </div>
     </nav>
+
+    <!--offcanvas-->
+    <div
+  class="offcanvas offcanvas-end"
+  tabindex="-1"
+  id="profileCanvas"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">
+      <i class="fa-regular fa-circle-user"></i>
+      Profile
+    </h5>
+
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+    ></button>
+  </div>
+
+  <div class="offcanvas-body">
+
+    <div class="text-center mb-4">
+      <i class="fa-regular fa-circle-user display-1 text-primary"></i>
+
+      <h4 class="mt-3 profile blue"></h4>
+
+      <p class="text-secondary">
+        Welcome back 👋
+      </p>
+    </div>
+
+    <div class="d-grid gap-3">
+
+      <button class="btn btn-outline-primary">
+        <i class="fa-solid fa-user"></i>
+        Profile
+      </button>
+
+      <button class="btn btn-danger">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Logout
+      </button>
+
+
+    </div>
+
+  </div>
+</div>
+
     <!-- app -->
     <div class="container bg-primary w-50 mt-4 p-3">
       <div id="app">
@@ -53,13 +112,13 @@
         <p class="text-secondary text-center">Manage Your Tasks Effectively</p>
         <div class="btn-container d-flex justify-content-around gap-4 mt-4">
           <div class="btn-left d-flex gap-3">
-            <button class="btn btn-info text-light" id="pending-btn">pending</button>
-            <button class="btn btn-success" id="completed-btn">
+            <button class="btn btn-info text-light" id="pending-btn"><i class="fa-solid fa-clock" ></i> pending</button>
+            <button class="btn btn-success" id="completed-btn"><i class="fa-solid fa-check"></i>
               Completed
             </button>
             
-            <button class="btn btn-warning" id="overdue-btn">Overdue</button>
-            <button class="btn btn-danger" id="DeletedTasksBtn">Deleted Tasks</button>
+            <button class="btn btn-warning" id="overdue-btn"><i class="bi bi-hourglass"></i> Overdue</button>
+            <button class="btn btn-danger" id="DeletedTasksBtn"><i class="fa-solid fa-trash"></i> Deleted Tasks</button>
           </div>
           <div class="btn-right">
             <button
@@ -202,6 +261,7 @@
                       <option value="Low">Low</option>
                     </select>
                   </div>
+
                   <div class="mb-3">
                     <label for="due-date" class="form-label">Due Date <span class="text-danger">*</span></label>
                     <input

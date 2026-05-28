@@ -47,10 +47,8 @@
       "dueDate": "2026-05-28",
       "completed": false,
       "deleted": false,
-      "overDue": false,
-      "status": "overdue",
-      "createdAt": "2026-05-28T11:57:31.896Z",
-      "updatedAt": "2026-05-28T12:09:17.111Z"
+      "updatedAt": "2026-05-28T12:42:03.012Z",
+      "status": "overdue"
     },
     {
       "id": 1779969478160,
@@ -59,12 +57,12 @@
       "description": "",
       "priority": "Medium",
       "dueDate": "2026-03-28",
-      "completed": false,
-      "deleted": false,
+      "completed": true,
+      "deleted": true,
       "overDue": false,
-      "status": "completed",
+      "status": "delete",
       "createdAt": "2026-05-28T11:57:58.160Z",
-      "updatedAt": "2026-05-28T12:09:17.355Z"
+      "updatedAt": "2026-05-28T12:42:05.173Z"
     },
     {
       "id": 1779969505296,
@@ -73,12 +71,12 @@
       "description": "",
       "priority": "High",
       "dueDate": "1111-11-11",
-      "completed": false,
-      "deleted": false,
+      "completed": true,
+      "deleted": true,
       "overDue": false,
-      "status": "completed",
+      "status": "delete",
       "createdAt": "2026-05-28T11:58:25.296Z",
-      "updatedAt": "2026-05-28T12:09:17.575Z"
+      "updatedAt": "2026-05-28T12:42:05.945Z"
     },
     {
       "id": 1779969511504,
@@ -87,12 +85,12 @@
       "description": "",
       "priority": "High",
       "dueDate": "0011-11-11",
-      "completed": false,
-      "deleted": false,
+      "completed": true,
+      "deleted": true,
       "overDue": false,
-      "status": "completed",
+      "status": "delete",
       "createdAt": "2026-05-28T11:58:31.504Z",
-      "updatedAt": "2026-05-28T12:09:17.762Z"
+      "updatedAt": "2026-05-28T12:42:06.644Z"
     },
     {
       "id": 1779969519672,
@@ -101,12 +99,12 @@
       "description": "",
       "priority": "Low",
       "dueDate": "0022-02-22",
-      "completed": false,
-      "deleted": false,
+      "completed": true,
+      "deleted": true,
       "overDue": false,
-      "status": "completed",
+      "status": "delete",
       "createdAt": "2026-05-28T11:58:39.672Z",
-      "updatedAt": "2026-05-28T12:09:17.946Z"
+      "updatedAt": "2026-05-28T12:42:07.300Z"
     }
   ]
 }
