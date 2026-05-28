@@ -21,16 +21,16 @@
 
                 //for finding status
                 function getTaskStatus(task) {
-    let curDate = new Date()
-    let dueDate = new Date(task.dueDate)
+                    let curDate = new Date()
+                    let dueDate = new Date(task.dueDate)
 
-    curDate.setHours(0, 0, 0, 0)
-    dueDate.setHours(0, 0, 0, 0)
+                    curDate.setHours(0, 0, 0, 0)
+                    dueDate.setHours(0, 0, 0, 0)
 
-    if (task.completed) return 'completed'
-    if (curDate > dueDate) return 'overdue'   
+                    if (task.completed) return 'completed'
+                    if (curDate > dueDate) return 'overdue'   
 
-    return 'pending'
+                    return 'pending'
 }
 
 
@@ -155,6 +155,7 @@
 
 
                     div.classList.add("task-card")
+                    div.dataset.id = task.id
 
                     let checked = ""
 
@@ -253,17 +254,21 @@
             })  
             //delete
             async function deleteTask(task){
+
                 task.status = 'delete' 
                 task.deleted = true 
 
                 await fetch(`http://localhost:3000/todos/${task.id}` , {
-                    method:'PUT' , 
+                    method:'PUT',
                     headers:{
-                        'Content-type':'application/json' 
-                    } , 
+                        'Content-type':'application/json'
+                    },
                     body:JSON.stringify(task)
                 })
-                await renderCurrentPage()
+
+                document
+                .querySelector(`[data-id="${task.id}"]`)
+                .remove()
             }
             $(document).on('click',async function(event){
                 if(event.target.classList.contains("deleteBtn")) {
@@ -281,32 +286,41 @@
             //checbbox
 
 
-            $(document).on('change',async function(event){
-                if(event.target.classList.contains('completed-checkbox')) {
-                    let taskId = event.target.dataset.id 
+            $(document).on('change', async function(event){
 
-                    let response = await fetch(`http://localhost:3000/todos/${taskId}`) 
-                    let task = await response.json() 
+        if(event.target.classList.contains('completed-checkbox')) {
 
-                    let isChecked = event.target.checked 
-                    
-                    task.completed = isChecked 
+            let taskId = event.target.dataset.id 
 
-                    task.updatedAt = new Date().toISOString()
+            let response = await fetch(`http://localhost:3000/todos/${taskId}`) 
+            let task = await response.json() 
 
+            let isChecked = event.target.checked 
 
-                    await fetch(`http://localhost:3000/todos/${taskId}` , {
-                        method:"PUT",
-                        headers:{
-                            'Content-type':'application/json'
-                        } , 
-                        body:JSON.stringify(task)
-                    })
+            task.completed = isChecked 
+            task.updatedAt = new Date().toISOString()
 
-                        await renderCurrentPage()
-                    
-                }
+            await fetch(`http://localhost:3000/todos/${taskId}` , {
+                method:"PUT",
+                headers:{
+                    'Content-type':'application/json'
+                },
+                body:JSON.stringify(task)
             })
+
+            let card = event.target.closest('.task-card')
+
+            if(curPage === 'pending' && task.completed){
+                card.remove()
+            }
+            else if(curPage === 'completed' && !task.completed){
+                card.remove()
+            }
+            else if(curPage === 'overdue' && task.completed){
+                card.remove()
+            }
+        }
+})
             //show pending tasks 
             $("#pending-btn").on('click',async function(){
                 curPage = 'pending' 
@@ -334,18 +348,18 @@
 
             //overdue
             async function displayOverDueTasks() {
-    try {
-        let response = await fetch('http://localhost:3000/todos')
-        let tasks = await response.json()
+            try {
+                let response = await fetch('http://localhost:3000/todos')
+                let tasks = await response.json()
 
-        tasks
-            .filter(task => task.userId == user.id && getTaskStatus(task) === 'overdue' && !task.deleted)
-            .forEach(task => createTask(task))
-    }
-    catch(error) {
-        console.log(error)
-    }
-}
+                tasks
+                    .filter(task => task.userId == user.id && getTaskStatus(task) === 'overdue' && !task.deleted)
+                    .forEach(task => createTask(task))
+            }
+            catch(error) {
+                console.log(error)
+            }
+        }
 
             $("#overdue-btn").on('click',async function(){
                 curPage = "overdue" 
@@ -370,6 +384,7 @@
 
                 let div = document.createElement("div") 
                 div.classList.add(".task-card")
+                div.dataset.id = task.id
                 let stars = "" 
                 if (task.priority == 'High') stars = '⭐⭐⭐' 
                 else if(task.priority =='Medium') stars = '⭐⭐' 
@@ -435,7 +450,7 @@
                         } , 
                         body : JSON.stringify(task)
                     })
-                    await renderCurrentPage()
+                    document.querySelector(`[data-id="${task.id}"]`).remove()
                 }
                 
                 
