@@ -52,14 +52,19 @@ $(document).ready(function () {
 
             if (response.length > 0) {
 
-                alert("Login successful");
 
                 localStorage.setItem(
                     'user',
                     JSON.stringify(response[0])
                 );
 
-                window.location.href = 'app.html';
+                $('.login-text').addClass('d-none') 
+                $('.login-spinner').removeClass('d-none') 
+                $('.loginBtn').attr('disabled',true) 
+
+                setTimeout(() => {
+                    window.location.href = 'app.html'
+                }, 2000);
 
             } else {
 
@@ -73,5 +78,7 @@ $(document).ready(function () {
             console.log("error occurred", error);
         }
     }
+
+    
 
 });

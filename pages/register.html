@@ -20,8 +20,11 @@
         rel="stylesheet"
         href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css"
       />
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      />
       <link rel="stylesheet" href="../styles/signup.css" />
-
     </head>
     <body>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -50,7 +53,7 @@
       </nav>
       <div class="container main-container border rounded-4 p-3 px-5 mt-5">
         <h2 class="text-success">CheckList Registration</h2>
-        <form  id="signin-form">
+        <form id="signin-form">
           <div id="tabs">
             <ul class="d-none d-lg-flex">
               <li><a href="#tab-1">Personal Information</a></li>
@@ -113,8 +116,12 @@
               />
 
               <div class="button-container mt-3 d-flex justify-content-between">
-                <button class="btn btn-secondary disabled" type="button">Previous</button>
-                <button class="btn btn-success" id="next1" type="button">Next</button>
+                <button class="btn btn-secondary disabled" type="button">
+                  Previous
+                </button>
+                <button class="btn btn-success" id="next1" type="button">
+                  Next
+                </button>
               </div>
             </div>
 
@@ -176,8 +183,12 @@
               />
 
               <div class="button-container mt-3 d-flex justify-content-between">
-                <button class="btn btn-secondary" id="prev1" type="button">Previous</button>
-                <button class="btn btn-success" id="next2" type="button">Next</button>
+                <button class="btn btn-secondary" id="prev1" type="button">
+                  Previous
+                </button>
+                <button class="btn btn-success" id="next2" type="button">
+                  Next
+                </button>
               </div>
             </div>
 
@@ -222,8 +233,12 @@
               />
 
               <div class="button-container mt-2 d-flex justify-content-between">
-                <button class="btn btn-secondary" id="prev2" type="button">Previous</button>
-                <button class="btn btn-success" id="next3" type="button">Next</button>
+                <button class="btn btn-secondary" id="prev2" type="button">
+                  Previous
+                </button>
+                <button class="btn btn-success" id="next3" type="button">
+                  Next
+                </button>
               </div>
             </div>
             <!-- tab 4 -->
@@ -267,7 +282,12 @@
               </div>
 
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="terms" name="terms" />
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="terms"
+                  name="terms"
+                />
                 <label class="form-check-label" for="terms">
                   I agree to the Terms & Conditions
                   <span class="required">*</span>
@@ -275,9 +295,21 @@
               </div>
 
               <div class="button-container mt-3 d-flex justify-content-between">
-                <button class="btn btn-secondary" id="prev3" type="button">Previous</button>
-                <button type="submit" class="btn btn-success" id="createBtn">
-                  Create Account
+                <button class="btn btn-secondary" id="prev3" type="button">
+                  Previous
+                </button>
+                <button
+                  type="submit"
+                  class="btn btn-success registerBtn"
+                  id="createBtn"
+                >
+                  <span class="register-text"
+                    ><i class="fa-solid fa-user-plus text-light"></i> Create
+                    Account</span
+                  >
+                  <span
+                    class="spinner-border spinner-border-sm d-none register-spinner"
+                  ></span>
                 </button>
               </div>
             </div>

@@ -35,7 +35,100 @@
       "username": "working",
       "password": "12345678",
       "id": 6
+    },
+    {
+      "email": "THARNISHPALANISAMY3@GMAIL.COM",
+      "username": "demo007",
+      "password": "12345678",
+      "id": 7
+    },
+    {
+      "email": "THARNISHPALANISAMY3@GMAIL.COM",
+      "username": "demo001",
+      "password": "12345678",
+      "id": 8
+    },
+    {
+      "email": "THARNISHPALANISAMY3@GMAIL.COM",
+      "username": "tharnish01",
+      "password": "12345678",
+      "id": 9
+    },
+    {
+      "email": "THARNISHPALANISAMY3@GMAIL.COM",
+      "username": "12345678",
+      "password": "12345678",
+      "id": 10
+    },
+    {
+      "email": "THARNISHPALANISAMY3@GMAIL.COM",
+      "username": "23bda057",
+      "password": "12345678",
+      "id": 11
+    },
+    {
+      "email": "THARNISHPALANISAMY3@GMAIL.COM",
+      "username": "23bda057",
+      "password": "12345678",
+      "id": 12
+    },
+    {
+      "email": "THARNISHPALANISAMY3@GMAIL.COM",
+      "username": "tharnish",
+      "password": "12345678",
+      "id": 13
+    },
+    {
+      "email": "THARNISHPALANISAMY3@GMAIL.COM",
+      "username": "12345678",
+      "password": "12345678",
+      "id": 14
+    },
+    {
+      "email": "tharnishp.palanisamy@gmail.com",
+      "username": "12345678",
+      "password": "12345678",
+      "id": 15
+    },
+    {
+      "email": "THARNISHPALANISAMY3@GMAIL.COM",
+      "username": "1234567812345678",
+      "password": "12345678",
+      "id": 16
+    },
+    {
+      "email": "THARNISHPALANISAMY3@GMAIL.COM",
+      "username": "12345678222",
+      "password": "12345678",
+      "id": 17
+    },
+    {
+      "email": "THARNISHPALANISAMY3@GMAIL.COM",
+      "username": "0979133022",
+      "password": "0979133022",
+      "id": 18
+    },
+    {
+      "email": "THARNISHPALANISAMY3@GMAIL.COM",
+      "username": "09791330220979133022",
+      "password": "0979133022",
+      "id": 19
     }
   ],
-  "todos": []
+  "todos": [
+    {
+      "id": 1779980036957,
+      "userId": 1,
+      "title": "complete todo",
+      "description": "",
+      "priority": "High",
+      "dueDate": "2026-05-28",
+      "completed": false,
+      "deleted": true,
+      "overDue": false,
+      "status": "delete",
+      "createdAt": "2026-05-28T14:53:56.957Z",
+      "updatedAt": "2026-05-28T14:54:16.048Z"
+    }
+  ]
 }
