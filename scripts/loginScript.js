@@ -70,7 +70,7 @@ $(document).ready(function () {
                 }, 1000);
                 setTimeout(() => {
                     window.location.href = 'app.html'
-                }, 3000);
+                }, 3000);   
             } else {
 
                 alert("Invalid username or password");

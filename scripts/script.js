@@ -9,8 +9,12 @@ $(document).ready(function(){
     }
     name.innerHTML = `${user.username}` 
     profileName.innerHTML = `${user.username}`
-
-
+    $('#due-date').attr(
+        'min',
+        new Date().toISOString().split('T')[0]
+    );
+    //pending button disabled
+    $("#pending-btn").attr("disabled",true)
     //logout button 
     $(".logoutBtn").click(function () {
         
@@ -54,6 +58,54 @@ $(document).ready(function(){
         $('.profile-text').addClass('d-none') 
         $('.profile-spinner').removeClass('d-none') 
 
+        setTimeout(() => {
+            $('.profile-text').removeClass('d-none') 
+            $('.profile-spinner').addClass('d-none') 
+
+            let div = document.createElement('div') 
+
+            let userDob = new Date(user.dob)
+            div.innerHTML = `
+            <p><span class=text-seconday>Username :</span> <span class = 'blue'> ${user.username}</span></p>   
+            <p><span class=text-seconday>Email :</span> <span class = 'blue'> ${user.email}</span></p>
+            <p><span class=text-seconday>Phone :</span> <span class = 'blue'> ${user.phone}</span></p>
+            <p><span class=text-seconday>Date of Birth :</span> <span class = 'blue'> 
+            ${userDob.getDate()}-${userDob.getMonth()+1}-${userDob.getFullYear()}</span></p>
+            `
+            $('.profile-content').html(div)
+            bootstrap.Modal
+            .getOrCreateInstance(document.getElementById('userProfile'))
+            .show();
+        
+        }, 1500);
+
+    })
+
+    //profile edit 
+
+    $(".profileEditBtn").on('click',function(){
+        $('#edit-username').val(user.username)
+        $('#edit-email').val(user.email) 
+        $("#edit-phone").val(user.phone) 
+        $("#edit-dob").val(user.dob)
+    })
+    $(".profileSave").on("click", async function(){
+        user.username = $('#edit-username').val() 
+        user.dob = $("#edit-dob").val() 
+        user.phone = $("#edit-phone").val() 
+        user.email = $('#edit-email').val() 
+        Swal.fire({
+        title: "Changes are saved",
+        icon: "success"
+        });
+
+        await fetch(`http://localhost:3000/users/${user.id}`,{
+            method:"PUT" , 
+            headers :{
+                'Content-type':"application/json"
+            } , 
+            body:JSON.stringify(user)
+        })
     })
 
     //for rendering
@@ -140,6 +192,18 @@ $(document).ready(function(){
             });
             return
         }
+        const selectedDate = $('#due-date').val();
+        const today = new Date().toISOString().split('T')[0];
+
+        if (selectedDate < today) {
+            Swal.fire({
+                icon: "error",
+                title: "Invalid Date",
+                text: "Due date cannot be in the past."
+            });
+            return;
+        }
+
 
         const task = {
             id:Date.now(), 
@@ -315,7 +379,7 @@ $('#updateTaskBtn').on('click', async function(){
 //delete
 async function deleteTask(task){
 
-    task.status = 'delete' 
+    task.status = 'deleted' 
     task.deleted = true 
 
     await fetch(`http://localhost:3000/todos/${task.id}` , {
@@ -333,9 +397,19 @@ async function deleteTask(task){
 $(document).on('click', async function(event){
 
     let btn = event.target.closest('.deleteBtn');
+    if (!btn) return 
 
-    if(btn){
+    let result = await Swal.fire({
+        title: "Are you sure?",
+        text: "Do you want to delete this Task ?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    })
 
+    if (result.isConfirmed){
         let taskId = btn.dataset.id;
 
         let response = await fetch(`http://localhost:3000/todos/${taskId}`);
@@ -347,7 +421,15 @@ $(document).on('click', async function(event){
         setTimeout(async () => {
             await deleteTask(task);
         }, 1200);
-    }
+        
+        setTimeout(() => {
+            Swal.fire({
+        title: "Deleted!",
+        text: "Your file has been Moved to deleted tasks!.",
+        icon: "success"
+    })
+        }, 1200);
+}
 });
 
 //checbbox
@@ -400,6 +482,12 @@ else if(curPage === 'overdue' && task.completed){
 //show pending tasks 
 $("#pending-btn").on('click',async function(){
     curPage = 'pending' 
+    $("#pending-btn").attr("disabled",true)
+    $("#completed-btn").attr("disabled",false)
+    $("#overdue-btn").attr("disabled",false)
+    $("#DeletedTasksBtn").attr("disabled",false)    
+
+
     await renderCurrentPage() 
 })
 
@@ -418,6 +506,10 @@ async function displayCompleteTasks(){
 //completed btn 
 $('#completed-btn').on('click',async function(event){
     curPage = 'completed' 
+    $("#pending-btn").attr("disabled",false)
+    $("#completed-btn").attr("disabled",true)
+    $("#overdue-btn").attr("disabled",false)
+    $("#DeletedTasksBtn").attr("disabled",false)
     await renderCurrentPage()
 })
 
@@ -439,6 +531,10 @@ catch(error) {
 
 $("#overdue-btn").on('click',async function(){
     curPage = "overdue" 
+    $("#pending-btn").attr("disabled",false)
+    $("#completed-btn").attr("disabled",false)
+    $("#overdue-btn").attr("disabled",true)
+    $("#DeletedTasksBtn").attr("disabled",false)
     await renderCurrentPage()
 })
 
@@ -502,6 +598,10 @@ function createDeletedTask (task){
 }
 $("#DeletedTasksBtn").on('click',async function(){
         curPage = 'deleted'
+        $("#pending-btn").attr("disabled",false)
+        $("#completed-btn").attr("disabled",false)
+        $("#overdue-btn").attr("disabled",false)
+        $("#DeletedTasksBtn").attr("disabled",true)
         renderCurrentPage()
 })
 

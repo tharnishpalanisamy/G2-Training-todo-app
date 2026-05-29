@@ -147,7 +147,7 @@
         </div>
         <!-- ADD TASK MODAL -->
         <div
-          class="modal fade"
+          class="modal fade mt-5"
           id="taskModal"
           tabindex="-1"
           aria-labelledby="exampleModalLabel"
@@ -216,6 +216,7 @@
                       type="date"
                       class="form-control"
                       id="due-date"
+        
                       required
                     />
                   </div>
@@ -243,7 +244,7 @@
 
         <!-- edit task -->
         <div
-          class="modal fade"
+          class="modal fade mt-5"
           id="editTaskModal"
           tabindex="-1"
           aria-labelledby="exampleModalLabel"
@@ -339,6 +340,60 @@
           </div>
         </div>
 
+
+        <!--User profile modal--> 
+        <div class="modal fade" id="userProfile" data-bs-backdrop="static" 
+        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-center mx-auto blue fs-3" id="staticBackdropLabel">Profile <i class="fa-regular fa-circle-user"></i></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body profile-content">
+              
+            </div>
+            <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success profileEditBtn" data-bs-toggle="modal" 
+        data-bs-target="#userProfileEditModal">Edit</button>
+      </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!--User profile edit --> 
+
+    <div class="modal fade" id="userProfileEditModal" data-bs-backdrop="static" 
+        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-center mx-auto blue fs-3" id="staticBackdropLabel">Profile <i class="fa-regular fa-circle-user"></i></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body edit-content">
+              <label for="username" class="form-label">Username : </label> 
+              <input type="text" class="form-control" id="edit-username"> <br>
+              <label for="email" class="form-label" >Email : </label> 
+              <input type="email" class="form-control" id="edit-email"> <br>
+              <label for="phone" class="form-label">Phone : </label> 
+              <input type="number" class="form-control" id="edit-phone"> <br>
+              <label for="dob" class="form-label">Date Of Birth : </label> 
+              <input type="date" class="form-control" id="edit-dob"> <br>
+
+              
+            </div>
+            <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary profileSave" data-bs-dismiss="modal">
+          Save
+        </button>
+      </div>
+        </div>
+        </div>
+      </div>
         <!-- task list -->
         <div class="task-container"></div>
       </div>

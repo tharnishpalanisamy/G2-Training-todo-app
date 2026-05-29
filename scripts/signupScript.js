@@ -154,28 +154,32 @@
             },
             },
             submitHandler: function (form, event) {
-    event.preventDefault();
+            event.preventDefault();
 
-    $('.register-text').addClass('d-none')
-    $('.register-spinner').removeClass('d-none')
-    $('.registerBtn').attr('disabled', true)
+            $('.register-text').addClass('d-none')
+            $('.register-spinner').removeClass('d-none')
+            $('.registerBtn').attr('disabled', true)
 
-    setTimeout(() => {
+            setTimeout(() => {
 
-        const API = 'http://localhost:3000/users'
+            const API = 'http://localhost:3000/users'
 
-        let email = $("#email").val()
-        let username = $("#username").val()
-        let password = $("#password").val()
+            let email = $("#email").val()
+            let username = $("#username").val()
+            let password = $("#password").val()
+            let phone = $('#phone').val()
+            let dob = $("#dob").val() 
 
-        fetch(API, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            fetch(API, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
             body: JSON.stringify({
                 email: email,
                 username: username,
+                phone:phone,
+                dob:dob,
                 password: password
             })
         })
@@ -195,7 +199,7 @@
                     });
                 }, 1000);
                 setTimeout(() => {
-                    window.location.href = './app.html'
+                    window.location.href = './login.html'
                 }, 3000);
         })
         .catch(error => {

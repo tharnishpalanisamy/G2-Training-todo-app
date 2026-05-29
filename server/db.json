@@ -1,200 +1,56 @@
 {
   "users": [
     {
-      "email": "THARNISHPALANISAMY3@GMAIL.COM",
+      "email": "tharnishpalanisamy3@gmail.com",
       "username": "tharnish",
+      "phone": "9788611225",
+      "dob": "2005-11-11",
       "password": "12345678",
       "id": 1
-    },
-    {
-      "email": "walter@gmail.com",
-      "username": "walter_07",
-      "password": "123456789@wW",
-      "id": 2
-    },
-    {
-      "email": "tharnishpalanisamy3@gmail.com",
-      "username": "admin01",
-      "password": "12345678",
-      "id": 3
-    },
-    {
-      "email": "tharnishpalanisamy3@gmail.com",
-      "username": "admin02",
-      "password": "12345678",
-      "id": 4
-    },
-    {
-      "email": "tharnishpalanisamy3@gmail.com",
-      "username": "admin03",
-      "password": "12345678",
-      "id": 5
-    },
-    {
-      "email": "tharnishpalanisamy3@gmail.com",
-      "username": "working",
-      "password": "12345678",
-      "id": 6
-    },
-    {
-      "email": "THARNISHPALANISAMY3@GMAIL.COM",
-      "username": "demo007",
-      "password": "12345678",
-      "id": 7
-    },
-    {
-      "email": "THARNISHPALANISAMY3@GMAIL.COM",
-      "username": "demo001",
-      "password": "12345678",
-      "id": 8
-    },
-    {
-      "email": "THARNISHPALANISAMY3@GMAIL.COM",
-      "username": "tharnish01",
-      "password": "12345678",
-      "id": 9
-    },
-    {
-      "email": "THARNISHPALANISAMY3@GMAIL.COM",
-      "username": "12345678",
-      "password": "12345678",
-      "id": 10
-    },
-    {
-      "email": "THARNISHPALANISAMY3@GMAIL.COM",
-      "username": "23bda057",
-      "password": "12345678",
-      "id": 11
-    },
-    {
-      "email": "THARNISHPALANISAMY3@GMAIL.COM",
-      "username": "23bda057",
-      "password": "12345678",
-      "id": 12
-    },
-    {
-      "email": "THARNISHPALANISAMY3@GMAIL.COM",
-      "username": "tharnish",
-      "password": "12345678",
-      "id": 13
-    },
-    {
-      "email": "THARNISHPALANISAMY3@GMAIL.COM",
-      "username": "12345678",
-      "password": "12345678",
-      "id": 14
-    },
-    {
-      "email": "tharnishp.palanisamy@gmail.com",
-      "username": "12345678",
-      "password": "12345678",
-      "id": 15
-    },
-    {
-      "email": "THARNISHPALANISAMY3@GMAIL.COM",
-      "username": "1234567812345678",
-      "password": "12345678",
-      "id": 16
-    },
-    {
-      "email": "THARNISHPALANISAMY3@GMAIL.COM",
-      "username": "12345678222",
-      "password": "12345678",
-      "id": 17
-    },
-    {
-      "email": "THARNISHPALANISAMY3@GMAIL.COM",
-      "username": "0979133022",
-      "password": "0979133022",
-      "id": 18
-    },
-    {
-      "email": "THARNISHPALANISAMY3@GMAIL.COM",
-      "username": "09791330220979133022",
-      "password": "0979133022",
-      "id": 19
-    },
-    {
-      "email": "tharnishpalanisamy3@gmail.com",
-      "username": "11111111111111111111",
-      "password": "1111111111",
-      "id": 20
-    },
-    {
-      "email": "tharnishpalanisamy3@gmail.com",
-      "username": "9791330225",
-      "password": "9791330225",
-      "id": 21
     }
   ],
   "todos": [
     {
-      "id": 1779980036957,
+      "id": 1780058312238,
+      "userId": 1,
+      "title": "revise C++",
+      "description": "Syntax , logic and oops",
+      "priority": "High",
+      "dueDate": "2026-05-29",
+      "completed": false,
+      "deleted": true,
+      "overDue": false,
+      "status": "deleted",
+      "createdAt": "2026-05-29T12:38:32.238Z",
+      "updatedAt": "2026-05-29T13:03:06.228Z"
+    },
+    {
+      "id": 1780059689207,
       "userId": 1,
       "title": "complete todo",
       "description": "",
       "priority": "High",
-      "dueDate": "2026-05-28",
+      "dueDate": "2026-05-30",
       "completed": false,
-      "deleted": false,
+      "deleted": true,
       "overDue": false,
-      "status": "overdue",
-      "createdAt": "2026-05-28T14:53:56.957Z",
-      "updatedAt": "2026-05-29T05:33:00.732Z"
+      "status": "deleted",
+      "createdAt": "2026-05-29T13:01:29.207Z",
+      "updatedAt": "2026-05-29T13:03:07.068Z"
     },
     {
-      "id": 1780032414603,
-      "userId": 1,
-      "title": "complete todo",
-      "description": "",
-      "priority": "Medium",
-      "dueDate": "2222-02-21",
-      "completed": false,
-      "deleted": false,
-      "updatedAt": "2026-05-29T06:03:37.198Z",
-      "status": "pending"
-    },
-    {
-      "id": 1780032421529,
-      "userId": 1,
-      "title": "1",
-      "description": "",
-      "priority": "High",
-      "dueDate": "0001-11-11",
-      "completed": false,
-      "deleted": false,
-      "overDue": false,
-      "status": "overdue",
-      "createdAt": "2026-05-29T05:27:01.529Z",
-      "updatedAt": "2026-05-29T05:33:02.006Z"
-    },
-    {
-      "id": 1780033550418,
+      "id": 1780059812743,
       "userId": 1,
       "title": "complete todo",
       "description": "",
       "priority": "High",
-      "dueDate": "0121-02-21",
-      "completed": false,
-      "deleted": false,
-      "overDue": false,
-      "status": "overdue",
-      "createdAt": "2026-05-29T05:45:50.418Z",
-      "updatedAt": "2026-05-29T05:45:50.418Z"
-    },
-    {
-      "id": 1780033567290,
-      "userId": 1,
-      "title": "complete todo",
-      "description": "",
-      "priority": "Medium",
-      "dueDate": "2027-05-30",
+      "dueDate": "2026-05-29",
       "completed": false,
       "deleted": false,
       "overDue": false,
       "status": "pending",
-      "createdAt": "2026-05-29T05:46:07.290Z",
-      "updatedAt": "2026-05-29T06:03:37.717Z"
+      "createdAt": "2026-05-29T13:03:32.743Z",
+      "updatedAt": "2026-05-29T13:03:32.743Z"
     }
   ]
 }

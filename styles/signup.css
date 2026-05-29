@@ -46,6 +46,9 @@ margin-top: 5px;
     color: white !important;
 }
 
+.required{
+    color: red;
+}
 @media (min-width: 992px) {
 .main-container {
     width: 50%;
