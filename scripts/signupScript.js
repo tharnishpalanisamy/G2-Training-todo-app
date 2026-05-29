@@ -189,8 +189,14 @@
             console.log('user created');
 
             setTimeout(() => {
-                window.location.href = './login.html'
-            }, 2000);
+                    Swal.fire({
+                    title: "Account Created Successfully",
+                    icon: "success",
+                    });
+                }, 1000);
+                setTimeout(() => {
+                    window.location.href = './app.html'
+                }, 3000);
         })
         .catch(error => {
             console.log(error)

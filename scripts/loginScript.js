@@ -63,9 +63,14 @@ $(document).ready(function () {
                 $('.loginBtn').attr('disabled',true) 
 
                 setTimeout(() => {
+                    Swal.fire({
+                    title: "Login Successful",
+                    icon: "success",
+                    });
+                }, 1000);
+                setTimeout(() => {
                     window.location.href = 'app.html'
-                }, 2000);
-
+                }, 3000);
             } else {
 
                 alert("Invalid username or password");

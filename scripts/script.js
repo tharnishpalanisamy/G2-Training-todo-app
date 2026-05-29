@@ -13,12 +13,46 @@ $(document).ready(function(){
 
     //logout button 
     $(".logoutBtn").click(function () {
-        $(".logout-text").addClass("d-none")
-        $(".logout-spinner").removeClass("d-none")
-        $(".logoutBtn").attr("disabled", true)
-        setTimeout(() => {
-            window.location.href = "../index.html"
-        }, 2000)
+        
+        Swal.fire({
+        title: "Are you sure?",
+        text: "Do you want to Logout ?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Logout"
+        }).then((result) => {
+            
+        if (result.isConfirmed){ 
+            $(".logout-text").addClass("d-none")
+            $(".logout-spinner").removeClass("d-none")
+            $(".logoutBtn").attr("disabled", true)
+
+            setTimeout(() => {
+                Swal.fire({
+                
+                title: "Logged Out!",
+                text: "Your Account has been logged out.",
+                icon: "success"
+            }) 
+            }, 1500);
+
+            setTimeout(() => {
+                window.location.href = '../index.html'
+            }, 2500);
+
+
+        
+    }
+        });
+
+    })
+
+    //display the profile  
+    $(".profileBtn").on('click',function(){
+        $('.profile-text').addClass('d-none') 
+        $('.profile-spinner').removeClass('d-none') 
 
     })
 
@@ -99,7 +133,11 @@ $(document).ready(function(){
     $("#addTaskBtn").on('click',async function(){
 
         if (!$('#task-title').val() || !$('#priority').val() || !$('#due-date').val()) {
-            alert('Please fill in required fields')
+            Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Please fill all the required fiedls",
+            });
             return
         }
 
@@ -189,8 +227,13 @@ $(document).ready(function(){
                     </div> 
                         
                     <div class = 'task-header-right d-flex gap-2'> 
-                        <button type='button' class = 'btn btn-warning editBtn' data-id='${task.id}' > Edit </button>
-                        <button type='button' class = 'btn btn-danger deleteBtn' data-id='${task.id}'  > Delete </button> 
+                        <button type='button' class = 'btn btn-warning editBtn' data-id='${task.id}' ><i class="fa-regular fa-pen-to-square"></i> Edit </button>
+                        <button type='button' class = 'btn btn-danger deleteBtn' data-id='${task.id}'  >
+                        <span class = 'delete-text'><i class="fa-regular fa-trash-can"></i> Delete </span>
+                        <span class="spinner-border spinner-border-sm d-none delete-spinner"
+                        role="status"
+                        ></span>
+                        </button> 
                     </div> 
                 </div>
                 
@@ -215,7 +258,7 @@ let currentEditTask = null
 //edit button
 document.addEventListener('click', async function(event){
 
-    if(event.target.classList.contains('editBtn')){
+    if(event.target.closest('.editBtn')){
         let taskId = event.target.dataset.id
 
         let response = await fetch(`http://localhost:3000/todos/${taskId}`)
@@ -287,18 +330,25 @@ async function deleteTask(task){
     .querySelector(`[data-id="${task.id}"]`)
     .remove()
 }
-$(document).on('click',async function(event){
-    if(event.target.classList.contains("deleteBtn")) {
-        let taskId = event.target.dataset.id 
+$(document).on('click', async function(event){
 
-        let response = await fetch(`http://localhost:3000/todos/${taskId}`)  
+    let btn = event.target.closest('.deleteBtn');
 
-        let task = await response.json() 
+    if(btn){
 
-        await deleteTask(task) 
+        let taskId = btn.dataset.id;
 
+        let response = await fetch(`http://localhost:3000/todos/${taskId}`);
+        let task = await response.json();
+
+        $(btn).find('.delete-text').addClass('d-none');
+        $(btn).find('.delete-spinner').removeClass('d-none');
+
+        setTimeout(async () => {
+            await deleteTask(task);
+        }, 1200);
     }
-})
+});
 
 //checbbox
 
@@ -424,14 +474,21 @@ function createDeletedTask (task){
                     </div> 
                         
                     <div class = 'task-header-right d-flex gap-2'> 
-                        <button type='button' class = 'btn btn-success restoreBtn' data-id='${task.id}'  > Restore </button> 
+                        <button type='button' class = 'btn btn-success restoreBtn' data-id='${task.id}'  >
+                        <span class =' restore-text' >
+                         <i class="fa-solid fa-recycle"></i> Restore 
+                         </span> 
+
+                        <span class = 'spinner-border spinner-border-sm d-none restore-spinner' ></span>
+
+                         </button> 
                     </div> 
                 </div>
                 
                 <div class = 'task-body d-flex flex-column gap-2'> 
                     <div class = 'task-body-left d-flex gap-2 align-items-center pt-1' > 
                         <h5 class = 'fw-bold pt-1' > Due Date : ${task.dueDate} </h5> 
-                        <a class = 'btn btn-outline-danger rounded-pill' > deleted </a>
+                        <button class = 'btn btn-outline-danger rounded-pill' > deleted </button>
                     </div> 
                     <div class = 'task-description' > 
                         <p class = 'text-secondary' > ${task.description} </p>
@@ -450,9 +507,13 @@ $("#DeletedTasksBtn").on('click',async function(){
 
 //restore 
 $(document).on('click',async function(event){
-    if(event.target.classList.contains('restoreBtn')){
-        let taskId = event.target.dataset.id 
+    $(document).on('click', async function(event){
+        let restoreBtn = event.target.closest('.restoreBtn')
+        let taskId = restoreBtn.dataset.id 
         const API = 'http://localhost:3000/todos'  
+
+        $(restoreBtn).find('.restore-text').addClass('d-none') 
+        $(restoreBtn).find('.restore-spinner').removeClass('d-none') 
 
         let response = await fetch(`${API}/${taskId}`) 
         let task = await response.json() 
@@ -476,8 +537,14 @@ $(document).on('click',async function(event){
             } , 
             body : JSON.stringify(task)
         })
-        document.querySelector(`[data-id="${task.id}"]`).remove()
-    }
+
+        
+
+        setTimeout(() => {
+            document.querySelector(`[data-id="${task.id}"]`).remove()
+        }, 1200);
+    }) 
+    
     
     
 })

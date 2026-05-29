@@ -113,6 +113,18 @@
       "username": "09791330220979133022",
       "password": "0979133022",
       "id": 19
+    },
+    {
+      "email": "tharnishpalanisamy3@gmail.com",
+      "username": "11111111111111111111",
+      "password": "1111111111",
+      "id": 20
+    },
+    {
+      "email": "tharnishpalanisamy3@gmail.com",
+      "username": "9791330225",
+      "password": "9791330225",
+      "id": 21
     }
   ],
   "todos": [
@@ -124,11 +136,65 @@
       "priority": "High",
       "dueDate": "2026-05-28",
       "completed": false,
-      "deleted": true,
+      "deleted": false,
       "overDue": false,
-      "status": "delete",
+      "status": "overdue",
       "createdAt": "2026-05-28T14:53:56.957Z",
-      "updatedAt": "2026-05-28T14:54:16.048Z"
+      "updatedAt": "2026-05-29T05:33:00.732Z"
+    },
+    {
+      "id": 1780032414603,
+      "userId": 1,
+      "title": "complete todo",
+      "description": "",
+      "priority": "Medium",
+      "dueDate": "2222-02-21",
+      "completed": false,
+      "deleted": false,
+      "updatedAt": "2026-05-29T06:03:37.198Z",
+      "status": "pending"
+    },
+    {
+      "id": 1780032421529,
+      "userId": 1,
+      "title": "1",
+      "description": "",
+      "priority": "High",
+      "dueDate": "0001-11-11",
+      "completed": false,
+      "deleted": false,
+      "overDue": false,
+      "status": "overdue",
+      "createdAt": "2026-05-29T05:27:01.529Z",
+      "updatedAt": "2026-05-29T05:33:02.006Z"
+    },
+    {
+      "id": 1780033550418,
+      "userId": 1,
+      "title": "complete todo",
+      "description": "",
+      "priority": "High",
+      "dueDate": "0121-02-21",
+      "completed": false,
+      "deleted": false,
+      "overDue": false,
+      "status": "overdue",
+      "createdAt": "2026-05-29T05:45:50.418Z",
+      "updatedAt": "2026-05-29T05:45:50.418Z"
+    },
+    {
+      "id": 1780033567290,
+      "userId": 1,
+      "title": "complete todo",
+      "description": "",
+      "priority": "Medium",
+      "dueDate": "2027-05-30",
+      "completed": false,
+      "deleted": false,
+      "overDue": false,
+      "status": "pending",
+      "createdAt": "2026-05-29T05:46:07.290Z",
+      "updatedAt": "2026-05-29T06:03:37.717Z"
     }
   ]
 }
