@@ -1,9 +1,41 @@
         $(document).ready(function () {
+
+
+        //$('#dob').attr('max',new Date('2012-12-31').toISOString().split('T')[0]);
+        //local storage
+        $('#firstname').val(localStorage.getItem('firstName'))
+        $("#middlename").val(localStorage.getItem('middleName')) 
+        $("#lastname").val(localStorage.getItem('lastName')) 
+        let savedGender = localStorage.getItem('gender');
+        $(`input[name='gender'][value='${savedGender}']`).prop('checked', true);
+        $("#dob").val(localStorage.getItem('dob')) 
+
+        //tab -  2 
+
+        $("#email").val(localStorage.getItem('email'))
+        $("#phone").val(localStorage.getItem('phone'))
+        $("#country").val(localStorage.getItem('country'))
+        $("#state").val(localStorage.getItem('state'))
+        $("#city").val(localStorage.getItem('city'))
+
+        // //tab - 3 
+
+        $("#username").val(localStorage.getItem('username'))
+        $("#password").val(localStorage.getItem('password'))
+        $("#confirm-password").val(localStorage.getItem('confirm-password'))
+            
+            // document.querySelectorAll('input').forEach(
+            //     input =>{
+            //         input.value = localStorage.getItem(input.id) || ""
+            //     }
+            //)
+
         //next buttons
         $("#tabs").tabs();
         $("#next1").click(function (e) {
 
         e.preventDefault();
+        
 
         if (
             $("#firstname").valid() &&
@@ -11,6 +43,23 @@
             $("input[name='gender']").valid() &&
             $("#dob").valid()
         ) {
+            localStorage.setItem('firstName',$("#firstname").val())
+            localStorage.setItem('middleName',$("#middlename").val())
+            localStorage.setItem('lastName',$("#lastname").val())
+            localStorage.setItem('gender',$("input[name='gender']:checked").val())
+            console.log(localStorage.getItem('gender'));
+            localStorage.setItem('dob',$("#dob").val())
+
+            // document.querySelectorAll('input').forEach(
+            //     input =>{
+            //         if(input.type == 'radio'){
+            //             
+            //         }
+            //         localStorage.setItem(input.id , input.value)
+            //     }
+            // )
+
+
             $("#tabs").tabs("option", "active", 1);
         }
     });
@@ -25,6 +74,18 @@
             $("#state").valid() &&
             $("#city").valid()
         ) {
+            localStorage.setItem('email',$('#email').val())
+            localStorage.setItem('phone',$('#phone').val())
+            localStorage.setItem('country',$('#country').val())
+            localStorage.setItem('state',$('#state').val())
+            localStorage.setItem('city',$('#city').val())
+
+            // document.querySelectorAll('input').forEach(
+            //     input =>{
+            //         localStorage.setItem(input.id , input.value)
+            //     }
+            // )
+
             $("#tabs").tabs("option", "active", 2);
         }
     });
@@ -37,6 +98,16 @@
             $("#password").valid() &&
             $("#confirm-password").valid()
         ) {
+            localStorage.setItem('username',$('#username').val())
+            localStorage.setItem('password',$('#password').val())
+            localStorage.setItem('confirm-password',$('#confirm-password').val())
+            // document.querySelectorAll('input').forEach(
+            //     input =>{
+            //         localStorage.setItem(input.id , input.value)
+            //     }
+            // )
+
+
             $("#tabs").tabs("option", "active", 3);
         }
     });
@@ -68,6 +139,8 @@
             },
             dob: {
                 required: true,
+                max:'2012-12-31'
+                
             },
             email: {
                 required: true,
@@ -119,6 +192,7 @@
             },
             dob: {
                 required: "Please select your date of birth",
+                max : 'you are not old enough to create account'
             },
             email: {
                 required: "Email cannot be empty",
@@ -199,7 +273,9 @@
                     });
                 }, 1000);
                 setTimeout(() => {
+                    localStorage.clear()
                     window.location.href = './login.html'
+                    
                 }, 3000);
         })
         .catch(error => {

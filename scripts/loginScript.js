@@ -73,7 +73,20 @@ $(document).ready(function () {
                 }, 3000);   
             } else {
 
-                alert("Invalid username or password");
+                $('.login-text').addClass('d-none') 
+                $('.login-spinner').removeClass('d-none') 
+                $('.loginBtn').attr('disabled',true) 
+
+                setTimeout(() => {
+                    Swal.fire({
+                    title: "Login Failed !",
+                    text:'Please Enter Correct Username and password',
+                    icon: "error",
+                    });
+                    $('.login-text').removeClass('d-none') 
+                    $('.login-spinner').addClass('d-none') 
+                    $('.loginBtn').attr('disabled',false)  
+                }, 1000);
             }
 
         }

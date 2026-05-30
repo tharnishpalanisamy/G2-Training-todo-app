@@ -7,8 +7,17 @@ $(document).ready(function(){
     if(!name) {
         window.location.href = '../index.html'
     }
-    name.innerHTML = `${user.username}` 
-    profileName.innerHTML = `${user.username}`
+    let username = user.username 
+    let displayName = '' 
+    for(let i = 0 ; i < username.length ; i++) {
+        if (i==0) {
+            displayName += username[i].toUpperCase()
+        }
+        else{
+        displayName += username[i] }
+    }
+    name.innerHTML = `${displayName}` 
+    profileName.innerHTML = `${displayName}`
     $('#due-date').attr(
         'min',
         new Date().toISOString().split('T')[0]
@@ -281,6 +290,7 @@ $(document).ready(function(){
         if(task.completed === true ){
             checked = "checked"
         }
+        let dueDate = new Date(task.dueDate)
         div.innerHTML = `
             <div class='task-item p-2 '> 
                 <div class='task-header d-flex justify-content-between px-2'> 
@@ -303,7 +313,7 @@ $(document).ready(function(){
                 
                 <div class = 'task-body d-flex flex-column gap-2'> 
                     <div class = 'task-body-left d-flex gap-2 align-items-center pt-1' > 
-                        <h5 class = 'fw-bold pt-1' > Due Date : ${task.dueDate} </h5> 
+                        <h5 class = 'fw-bold pt-1' > Due Date : ${dueDate.getDate()}-${dueDate.getMonth()}-${dueDate.getFullYear()} </h5> 
                         <a class = 'btn ${statusClass} rounded-pill' > ${status} </a>
                     </div> 
                     <div class = 'task-description' > 
@@ -560,7 +570,9 @@ function createDeletedTask (task){
     let stars = "" 
     if (task.priority == 'High') stars = '⭐⭐⭐' 
     else if(task.priority =='Medium') stars = '⭐⭐' 
-    else if(task.priority == 'Low') stars = '⭐' 
+    else if(task.priority == 'Low') stars = '⭐'  
+
+    let dueDate = new Date(task.dueDate)
     div.innerHTML = `
             <div class='task-item p-2 '> 
                 <div class='task-header d-flex justify-content-between px-2'> 
@@ -583,7 +595,8 @@ function createDeletedTask (task){
                 
                 <div class = 'task-body d-flex flex-column gap-2'> 
                     <div class = 'task-body-left d-flex gap-2 align-items-center pt-1' > 
-                        <h5 class = 'fw-bold pt-1' > Due Date : ${task.dueDate} </h5> 
+                        <h5 class = 'fw-bold pt-1' > Due Date : ${dueDate.getDate()}-${dueDate.getMonth()}-${dueDate.getFullYear()} 
+                        </h5> 
                         <button class = 'btn btn-outline-danger rounded-pill' > deleted </button>
                     </div> 
                     <div class = 'task-description' > 
@@ -619,11 +632,14 @@ $(document).on('click',async function(event){
         let task = await response.json() 
 
         task.deleted = false 
-
+        let curDate = new Date() 
+        let dueDate = new Date(task.dueDate)
+        curDate.setHours(0, 0, 0, 0)
+        dueDate.setHours(0, 0, 0, 0)
         if(task.completed){
             task.status = 'completed'
         }
-        else if(new Date() > new Date(task.dueDate)){
+        else if(curDate > dueDate){
             task.status = 'overdue'
         }
         else{
@@ -642,6 +658,10 @@ $(document).on('click',async function(event){
 
         setTimeout(() => {
             document.querySelector(`[data-id="${task.id}"]`).remove()
+            Swal.fire({
+            title: `Task is successfully restored and moved to ${task.status} tasks`,
+            icon: "success",
+            });
         }, 1200);
     }) 
     

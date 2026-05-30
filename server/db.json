@@ -7,50 +7,80 @@
       "dob": "2005-11-11",
       "password": "12345678",
       "id": 1
+    },
+    {
+      "email": "tharnishpalanisamy3@gmail.com",
+      "username": "tharnish017",
+      "phone": "9791330225",
+      "dob": "0011-11-11",
+      "password": "12345678",
+      "id": 2
+    },
+    {
+      "email": "tharnishpalanisamy3@gmail.com",
+      "username": "tharnish0001",
+      "phone": "9791330225",
+      "dob": "2005-11-11",
+      "password": "12345678",
+      "id": 3
     }
   ],
   "todos": [
     {
-      "id": 1780058312238,
+      "id": 1780123124123,
       "userId": 1,
-      "title": "revise C++",
-      "description": "Syntax , logic and oops",
+      "title": "complete mongoDB",
+      "description": "",
       "priority": "High",
-      "dueDate": "2026-05-29",
+      "dueDate": "2026-05-30",
       "completed": false,
-      "deleted": true,
+      "deleted": false,
       "overDue": false,
-      "status": "deleted",
-      "createdAt": "2026-05-29T12:38:32.238Z",
-      "updatedAt": "2026-05-29T13:03:06.228Z"
+      "status": "pending",
+      "createdAt": "2026-05-30T06:38:44.123Z",
+      "updatedAt": "2026-05-30T07:24:30.030Z"
     },
     {
-      "id": 1780059689207,
+      "id": 1780125893658,
+      "userId": 1,
+      "title": "Revise C++",
+      "description": "",
+      "priority": "Medium",
+      "dueDate": "2026-05-30",
+      "completed": false,
+      "deleted": false,
+      "overDue": false,
+      "status": "pending",
+      "createdAt": "2026-05-30T07:24:53.658Z",
+      "updatedAt": "2026-05-30T07:24:53.658Z"
+    },
+    {
+      "id": 1780125907002,
       "userId": 1,
       "title": "complete todo",
       "description": "",
       "priority": "High",
       "dueDate": "2026-05-30",
+      "completed": true,
+      "deleted": false,
+      "overDue": false,
+      "status": "pending",
+      "createdAt": "2026-05-30T07:25:07.002Z",
+      "updatedAt": "2026-05-30T07:25:42.860Z"
+    },
+    {
+      "id": 1780125933850,
+      "userId": 1,
+      "title": "Eat Breakfast",
+      "description": "",
+      "priority": "Medium",
+      "dueDate": "2026-05-30",
       "completed": false,
       "deleted": true,
       "overDue": false,
       "status": "deleted",
-      "createdAt": "2026-05-29T13:01:29.207Z",
-      "updatedAt": "2026-05-29T13:03:07.068Z"
-    },
-    {
-      "id": 1780059812743,
-      "userId": 1,
-      "title": "complete todo",
-      "description": "",
-      "priority": "High",
-      "dueDate": "2026-05-29",
-      "completed": false,
-      "deleted": false,
-      "overDue": false,
-      "status": "pending",
-      "createdAt": "2026-05-29T13:03:32.743Z",
-      "updatedAt": "2026-05-29T13:03:32.743Z"
+      "createdAt": "2026-05-30T07:25:33.850Z",
+      "updatedAt": "2026-05-30T07:25:33.850Z"
     }
   ]
 }
