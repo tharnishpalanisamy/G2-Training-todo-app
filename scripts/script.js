@@ -256,10 +256,10 @@ $(document).ready(function(){
         let stars = ""
 
         if(task.priority === "High"){
-            stars = "⭐⭐⭐"
+            stars = "⭐⭐⭐⭐⭐"
         }
         else if(task.priority === "Medium"){
-            stars = "⭐⭐"
+            stars = "⭐⭐⭐"
         }
         else{
             stars = "⭐"
@@ -282,7 +282,7 @@ $(document).ready(function(){
 
 
 
-        div.classList.add("task-card")
+        div.classList.add("task-card" , )
         div.dataset.id = task.id
 
         let checked = ""
@@ -313,7 +313,7 @@ $(document).ready(function(){
                 
                 <div class = 'task-body d-flex flex-column gap-2'> 
                     <div class = 'task-body-left d-flex gap-2 align-items-center pt-1' > 
-                        <h5 class = 'fw-bold pt-1' > Due Date : ${dueDate.getDate()}-${dueDate.getMonth()}-${dueDate.getFullYear()} </h5> 
+                        <h5 class = 'fw-bold pt-1' > Due Date : ${dueDate.getDate()}-${dueDate.getMonth()+1}-${dueDate.getFullYear()} </h5> 
                         <a class = 'btn ${statusClass} rounded-pill' > ${status} </a>
                     </div> 
                     <div class = 'task-description' > 
@@ -565,11 +565,11 @@ async function displayDeletedTasks(){
 function createDeletedTask (task){
 
     let div = document.createElement("div") 
-    div.classList.add("task-card")
+    div.classList.add("task-card" , "deleted")
     div.dataset.id = task.id
     let stars = "" 
-    if (task.priority == 'High') stars = '⭐⭐⭐' 
-    else if(task.priority =='Medium') stars = '⭐⭐' 
+    if (task.priority == 'High') stars = '⭐⭐⭐⭐⭐' 
+    else if(task.priority =='Medium') stars = '⭐⭐⭐' 
     else if(task.priority == 'Low') stars = '⭐'  
 
     let dueDate = new Date(task.dueDate)
@@ -595,7 +595,7 @@ function createDeletedTask (task){
                 
                 <div class = 'task-body d-flex flex-column gap-2'> 
                     <div class = 'task-body-left d-flex gap-2 align-items-center pt-1' > 
-                        <h5 class = 'fw-bold pt-1' > Due Date : ${dueDate.getDate()}-${dueDate.getMonth()}-${dueDate.getFullYear()} 
+                        <h5 class = 'fw-bold pt-1' > Due Date : ${dueDate.getDate()}-${dueDate.getMonth()+1}-${dueDate.getFullYear()} 
                         </h5> 
                         <button class = 'btn btn-outline-danger rounded-pill' > deleted </button>
                     </div> 
