@@ -282,7 +282,7 @@ $(document).ready(function(){
 
 
 
-        div.classList.add("task-card" , )
+        div.classList.add("task-card"   )
         div.dataset.id = task.id
 
         let checked = ""

@@ -40,6 +40,9 @@ background-color: #cbeffd !important;
     transition: all 0.3s ease;
 }
 
+.width55{
+    width: 55% !important;
+}
 .task-card.removing{
     opacity: 0;
     transform: translateX(40px);
@@ -68,3 +71,7 @@ background-color: #cbeffd !important;
     border-radius: 6px;
 }
 
+.filter:hover{
+    color: #0E2D7A;
+    cursor: pointer;
+}
