@@ -116,9 +116,77 @@ $(document).ready(function(){
             body:JSON.stringify(user)
         })
     })
+    //filter 
+    // $('.filter').on("click",function(){
+    //     $(this).toggleClass("text-dark")
+    // })
+    //filter button 
+    $("#applyFilter").on("click", async function () {  
+        $("#pending-btn").attr("disabled",false)
+        $("#completed-btn").attr("disabled",false)
+        $("#overdue-btn").attr("disabled",false)
+        $("#DeletedTasksBtn").attr("disabled",false)
+        
+        let fromDate = $("#fromDate").val() 
+        let toDate = $("#toDate").val() 
+
+        if(!fromDate || !toDate) {
+            Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Please fill all the required fields correctly",
+            });
+            return
+        }
+        fromDate = new Date(fromDate) 
+        toDate = new Date(toDate) 
+
+        fromDate.setHours(0,0,0,0) 
+        toDate.setHours(0,0,0,0)
+
+        if (toDate < fromDate) {
+            Swal.fire({
+            icon: "error",
+            title: "Invalid Date Range",
+            text: "To Date cannot be earlier than From Date",
+            });
+            return
+        }
+        if(document.querySelector('.filter').classList.contains('text-dark')){
+        $('.filter').removeClass('text-dark') }
+        let tasksData = await fetch(`http://localhost:3000/todos`) 
+        let tasks = await tasksData.json() 
+        let found = false
+        $(".task-container").empty();
+
+        tasks = tasks.filter(task => task.userId === user.id);
+        tasks.forEach(task=>{
+            let dueDate = new Date(task.dueDate);
+            dueDate.setHours(0,0,0,0);
+            if (dueDate >= fromDate && dueDate <= toDate) { 
+                found = true 
+                createTask(task)
+            }
+        }) 
+
+        if (!found) {
+            Swal.fire({
+                icon: "info",
+                title: "No Tasks Found",
+                text: "No tasks exist in the selected date range"
+            });
+        }
+
+        bootstrap.Modal
+        .getOrCreateInstance(
+            document.getElementById('filterModal')
+        ).hide()
+    });
+
 
     //for rendering
     async function renderCurrentPage(){
+
         document.querySelector(".task-container").innerHTML = ""
         if(curPage === 'pending'){
             await loadTask()
@@ -148,7 +216,7 @@ $(document).ready(function(){
         return 'pending'
 }
 
-
+    
     
 
     async function loadTask(){
@@ -496,6 +564,8 @@ $("#pending-btn").on('click',async function(){
     $("#completed-btn").attr("disabled",false)
     $("#overdue-btn").attr("disabled",false)
     $("#DeletedTasksBtn").attr("disabled",false)    
+    if(!document.querySelector('.filter').classList.contains('text-dark')){
+        $('.filter').addClass('text-dark') }
 
 
     await renderCurrentPage() 
@@ -520,6 +590,8 @@ $('#completed-btn').on('click',async function(event){
     $("#completed-btn").attr("disabled",true)
     $("#overdue-btn").attr("disabled",false)
     $("#DeletedTasksBtn").attr("disabled",false)
+    if(!document.querySelector('.filter').classList.contains('text-dark')){
+        $('.filter').addClass('text-dark') }
     await renderCurrentPage()
 })
 
@@ -545,6 +617,8 @@ $("#overdue-btn").on('click',async function(){
     $("#completed-btn").attr("disabled",false)
     $("#overdue-btn").attr("disabled",true)
     $("#DeletedTasksBtn").attr("disabled",false)
+    if(!document.querySelector('.filter').classList.contains('text-dark')){
+        $('.filter').addClass('text-dark') }
     await renderCurrentPage()
 })
 
@@ -614,59 +688,59 @@ $("#DeletedTasksBtn").on('click',async function(){
         $("#pending-btn").attr("disabled",false)
         $("#completed-btn").attr("disabled",false)
         $("#overdue-btn").attr("disabled",false)
-        $("#DeletedTasksBtn").attr("disabled",true)
+        $("#DeletedTasksBtn").attr("disabled",true) 
+        if(!document.querySelector('.filter').classList.contains('text-dark')){
+        $('.filter').addClass('text-dark') }
         renderCurrentPage()
 })
 
 //restore 
-$(document).on('click',async function(event){
-    $(document).on('click', async function(event){
-        let restoreBtn = event.target.closest('.restoreBtn')
-        let taskId = restoreBtn.dataset.id 
-        const API = 'http://localhost:3000/todos'  
+$(document).on('click', async function(event){
+    let restoreBtn = event.target.closest('.restoreBtn')
+    let taskId = restoreBtn.dataset.id 
+    const API = 'http://localhost:3000/todos'  
 
-        $(restoreBtn).find('.restore-text').addClass('d-none') 
-        $(restoreBtn).find('.restore-spinner').removeClass('d-none') 
+    $(restoreBtn).find('.restore-text').addClass('d-none') 
+    $(restoreBtn).find('.restore-spinner').removeClass('d-none') 
 
-        let response = await fetch(`${API}/${taskId}`) 
-        let task = await response.json() 
+    let response = await fetch(`${API}/${taskId}`) 
+    let task = await response.json() 
 
-        task.deleted = false 
-        let curDate = new Date() 
-        let dueDate = new Date(task.dueDate)
-        curDate.setHours(0, 0, 0, 0)
-        dueDate.setHours(0, 0, 0, 0)
-        if(task.completed){
-            task.status = 'completed'
-        }
-        else if(curDate > dueDate){
-            task.status = 'overdue'
-        }
-        else{
-            task.status = 'pending'
-        }
+    task.deleted = false 
+    let curDate = new Date() 
+    let dueDate = new Date(task.dueDate)
+    curDate.setHours(0, 0, 0, 0)
+    dueDate.setHours(0, 0, 0, 0)
+    if(task.completed){
+        task.status = 'completed'
+    }
+    else if(curDate > dueDate){
+        task.status = 'overdue'
+    }
+    else{
+        task.status = 'pending'
+    }
 
-        await fetch(`${API}/${taskId}`,{
-            method:"PUT" , 
-            headers:{
-                'Content-type':'application/json' 
-            } , 
-            body : JSON.stringify(task)
-        })
+    await fetch(`${API}/${taskId}`,{
+        method:"PUT" , 
+        headers:{
+            'Content-type':'application/json' 
+        } , 
+        body : JSON.stringify(task)
+    })
 
-        
-
-        setTimeout(() => {
-            document.querySelector(`[data-id="${task.id}"]`).remove()
-            Swal.fire({
-            title: `Task is successfully restored and moved to ${task.status} tasks`,
-            icon: "success",
-            });
-        }, 1200);
-    }) 
     
-    
-    
-})
+
+    setTimeout(() => {
+        document.querySelector(`[data-id="${task.id}"]`).remove()
+        Swal.fire({
+        title: `Task is successfully restored and moved to ${task.status} tasks`,
+        icon: "success",
+        });
+    }, 1200);
 }) 
+    
+    
+
+})
 
