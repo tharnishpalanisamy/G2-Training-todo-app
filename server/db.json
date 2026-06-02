@@ -83,12 +83,12 @@
       "description": "add attender table",
       "priority": "High",
       "dueDate": "2026-06-02",
-      "completed": true,
+      "completed": false,
       "deleted": false,
       "overDue": false,
       "status": "pending",
       "createdAt": "2026-06-02T07:13:51.303Z",
-      "updatedAt": "2026-06-02T08:33:13.231Z"
+      "updatedAt": "2026-06-02T09:42:54.666Z"
     },
     {
       "id": 1780392245820,
@@ -98,9 +98,9 @@
       "priority": "High",
       "dueDate": "2026-07-01",
       "completed": false,
-      "deleted": true,
+      "deleted": false,
       "overDue": false,
-      "status": "deleted",
+      "status": "pending",
       "createdAt": "2026-06-02T09:24:05.820Z",
       "updatedAt": "2026-06-02T09:24:05.820Z"
     }

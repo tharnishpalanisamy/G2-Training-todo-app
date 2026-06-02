@@ -121,11 +121,18 @@ $(document).ready(function(){
     //     $(this).toggleClass("text-dark")
     // })
     //filter button 
-    $("#applyFilter").on("click", async function () {  
+    $("#applyFilter").on("click", async function () {    
+
+        try{
         $("#pending-btn").attr("disabled",false)
         $("#completed-btn").attr("disabled",false)
         $("#overdue-btn").attr("disabled",false)
         $("#DeletedTasksBtn").attr("disabled",false)
+        
+        $('.filter-text').addClass('d-none') 
+        $('.filter-spinner').removeClass('d-none')
+
+        await new Promise(resolve => setTimeout(resolve, 1000));
         
         let fromDate = $("#fromDate").val() 
         let toDate = $("#toDate").val() 
@@ -137,7 +144,8 @@ $(document).ready(function(){
             text: "Please fill all the required fields correctly",
             });
             return
-        }
+        } 
+        
         fromDate = new Date(fromDate) 
         toDate = new Date(toDate) 
 
@@ -180,7 +188,15 @@ $(document).ready(function(){
         bootstrap.Modal
         .getOrCreateInstance(
             document.getElementById('filterModal')
-        ).hide()
+        ).hide()    
+    }
+    catch(error) { 
+        console.log(error);
+    }
+    finally{
+        $('.filter-text').removeClass('d-none') 
+        $('.filter-spinner').addClass('d-none') 
+    }
     });
 
 
